@@ -29,7 +29,7 @@ const ErrorModal = observer((props: Props) => {
         style={styles.sheetContainer}
         backdropComponent={ModalBackdrop}>
         <View style={styles.contentContainer}>
-          <Text style={styles.title}>{weatherStore.error}</Text>
+          <Text style={styles.title}>{props.error}</Text>
           <TouchableOpacity style={styles.button} onPress={onClose}>
             <Text style={styles.buttonText}>Close</Text>
           </TouchableOpacity>

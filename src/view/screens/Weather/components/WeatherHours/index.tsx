@@ -16,6 +16,7 @@ type Props = {
 
 const WeatherHours = observer((props: Props) => {
   const scrollList = useRef<Animated.ScrollView>(null);
+  const isSelectedHour = useCallback(index => index === weatherStore.selected_hour, [weatherStore.selected_hour]);
 
   useEffect(() => {
     scrollList?.current?.scrollTo({ x: weatherStore.selected_hour * 112 });
@@ -27,11 +28,16 @@ const WeatherHours = observer((props: Props) => {
       entering={props.entering}
       contentContainerStyle={styles.content}
       horizontal
-      key={weatherStore.selected_day}
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}>
       {weatherStore.hours.map((item, index) => (
-        <WeatherHour key={`${item.time}`} data={item} index={index} onPress={() => weatherStore.selectHour(index)} />
+        <WeatherHour
+          key={`${item.time}_${index}`}
+          data={item}
+          index={index}
+          isSelected={isSelectedHour(index)}
+          onPress={() => weatherStore.selectHour(index)}
+        />
       ))}
     </Animated.ScrollView>
   );

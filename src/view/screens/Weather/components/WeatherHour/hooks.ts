@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { ImageStyle, StyleProp, ViewStyle } from 'react-native';
 import { AnimateStyle, Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
-export const useWeatherHourStyle = (): [ViewStyle, AnimateStyle<StyleProp<ImageStyle>>, ViewStyle, ViewStyle, (value) => void] => {
-  const [selected, _setSelected] = useState(false);
-  const [wrapper, icon, time, temperature] = [useSharedValue(100), useSharedValue(50), useSharedValue(12), useSharedValue(22)];
+export const useWeatherHourStyle = (isSelected: boolean): [ViewStyle, AnimateStyle<StyleProp<ImageStyle>>, ViewStyle, ViewStyle, (value) => void] => {
+  const [selected, _setSelected] = useState(isSelected);
+  const [wrapper, icon, time, temperature] = isSelected
+    ? [useSharedValue(120), useSharedValue(65), useSharedValue(14), useSharedValue(28)]
+    : [useSharedValue(100), useSharedValue(50), useSharedValue(12), useSharedValue(22)];
   const timingOptions = {
     duration: 200,
     easing: Easing.bezier(0.25, 0.1, 0.25, 1),

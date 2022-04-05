@@ -3,28 +3,30 @@ import { formatTemperature } from '@src/common/utils/formater';
 import { weatherStore } from '@src/mobx/weatherStore';
 import Card from '@src/view/components/Card';
 import Row from '@src/view/components/Row';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 import moment from 'moment';
-import React, { useEffect, useMemo } from 'react';
-import Animated, { FadeInUp, FadeOutDown } from 'react-native-reanimated';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import Animated, { FadeInUp, FadeOut, FadeOutDown } from 'react-native-reanimated';
+
 import { useWeatherHourStyle } from './hooks';
 import { styles } from './styles';
 
 type Props = {
-  index: number;
+  isSelected: boolean;
   onPress: () => void;
   data: IWeatherHour;
 };
 
-const WeatherHour = ({ data, index, onPress }: Props) => {
-  const isSelected = useMemo(() => index === weatherStore.selected_hour, [weatherStore.selected_hour, index]);
-  const [animatedWrapper, animatedIcon, animatedTime, animatedTemperature, setSelected] = useWeatherHourStyle();
+const WeatherHour = observer(({ data, isSelected, onPress }: Props) => {
+  const [animatedWrapper, animatedIcon, animatedTime, animatedTemperature, setSelected] = useWeatherHourStyle(isSelected);
 
   useEffect(() => {
     setSelected(isSelected);
   }, [isSelected]);
 
   return (
-    <Animated.View entering={FadeInUp} exiting={FadeOutDown}>
+    <Animated.View entering={FadeInUp} exiting={FadeOut}>
       <Card style={[styles.wrapper, animatedWrapper]} onPress={onPress}>
         <Row style={styles.row}>
           <Animated.Text style={[styles.time, animatedTime]}>{moment(data.time).format('HH:mm')}</Animated.Text>
@@ -34,6 +36,6 @@ const WeatherHour = ({ data, index, onPress }: Props) => {
       </Card>
     </Animated.View>
   );
-};
+});
 
 export default WeatherHour;

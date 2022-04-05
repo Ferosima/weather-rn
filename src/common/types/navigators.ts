@@ -8,6 +8,7 @@ export type BottomTabParamList = {
 
 export type MainStackParamList = {
   [SCREENS.SPLASH]: undefined;
-  [SCREENS.ERROR]: { onClose: () => void; error: string };
+  [SCREENS.ERROR]: { onClose: () => void; title: string };
+  [SCREENS.WEATHER]: undefined;
   [SCREENS.APP]: undefined;
 };

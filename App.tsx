@@ -1,14 +1,11 @@
-import { BottomSheetModal, BottomSheetView } from '@gorhom/bottom-sheet';
 import { create } from 'mobx-persist';
 import { Provider } from 'mobx-react';
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, Text } from 'react-native';
-import { BottomSheet } from 'react-native-elements/dist/bottomSheet/BottomSheet';
+import { AsyncStorage, StatusBar, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import mainStore from './src/mobx';
-import { weatherStore } from './src/mobx/weatherStore';
 import MainNavigator from './src/navigation';
 import Loader from './src/view/components/Loader';
-import ErrorModal from './src/view/containers/ErrorModal';
 
 const App = () => {
   const [loading, setLoading] = useState(Boolean);
@@ -47,12 +44,20 @@ const App = () => {
     }
   };
 
-  if (loading) return <Loader />;
+  if (loading)
+    return (
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+        <Loader />
+      </View>
+    );
 
   return (
-    <Provider {...mainStore}>
-      <MainNavigator />
-    </Provider>
+    <SafeAreaProvider style={{ flex: 1, backgroundColor: '#fff' }}>
+      <StatusBar />
+      <Provider {...mainStore}>
+        <MainNavigator />
+      </Provider>
+    </SafeAreaProvider>
   );
 };
 

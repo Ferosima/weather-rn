@@ -60,6 +60,4 @@ buck-out/
 /ios/Pods/
 assets/data
 assets/fonts/IconFonts/*[.ttf, .html, .css, .json]
-/android
-/ios
 /app.json

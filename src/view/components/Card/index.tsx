@@ -3,11 +3,11 @@ import {
   Text,
   StyleProp,
   ViewStyle,
-  TouchableOpacity,
 } from "react-native";
 import React, { ReactNode } from "react";
 import { styles } from "./styles";
 import Animated, { FadeIn } from "react-native-reanimated";
+import { TouchableOpacity } from "@gorhom/bottom-sheet";
 
 type Props = {
   style?: StyleProp<ViewStyle>;

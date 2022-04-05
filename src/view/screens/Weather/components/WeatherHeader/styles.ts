@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'red',
+    backgroundColor: '#5173ED',
     aspectRatio: 350 / 170,
     overflow: 'hidden',
     borderRadius: 16,
@@ -55,5 +55,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'Comfortaa-Bold',
     color: '#fff',
     fontSize: 50,
+    lineHeight: 56,
   },
 });

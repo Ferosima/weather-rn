@@ -1,18 +1,11 @@
-import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { MainStackParamList } from '@src/common/types/navigators';
-import { navigationRef } from '@src/common/utils/navigation';
 import { weatherStore } from '@src/mobx/weatherStore';
-import Loader from '@src/view/components/Loader';
 import { observer } from 'mobx-react-lite';
-import moment from 'moment';
-import React, { useEffect, useRef } from 'react';
-import { useMemo } from 'react';
-import { AppState, AppStateStatus, Button, RefreshControl, ScrollView, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { AppState, AppStateStatus, RefreshControl, ScrollView } from 'react-native';
 import { FadeInDown } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { SCREENS } from '../../../common/constants/screens';
 import WeatherDays from './components/WeatherDays';
 import WeatherEmpty from './components/WeatherEmpty';
@@ -20,6 +13,7 @@ import WeatherHeader from './components/WeatherHeader';
 import WeatherHours from './components/WeatherHours';
 import WeatherInfo from './components/WeatherInfo';
 import { styles } from './styles';
+
 
 interface IBrandsProps extends NativeStackNavigationProp<MainStackParamList, SCREENS.APP> {
   navigation: any;
@@ -46,7 +40,7 @@ const WeatherScreen = observer((props: IBrandsProps) => {
 
   // Go to Modal
   useEffect(() => {
-    if (weatherStore.error) props.navigation.navigate(SCREENS.ERROR, { error: weatherStore.error });
+    if (weatherStore.error) props.navigation.navigate(SCREENS.ERROR, { title: weatherStore.error, onClose: weatherStore.clearError });
   }, [weatherStore.error]);
 
   return (

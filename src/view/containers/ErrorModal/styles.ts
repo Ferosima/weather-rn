@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
   title: {
     fontFamily: 'Comfortaa-Bold',
     fontSize: 24,
+    color: '#1d1d1d',
   },
   button: {
     padding: 20,
@@ -32,5 +33,6 @@ export const styles = StyleSheet.create({
     fontFamily: 'Comfortaa-Regular',
     fontSize: 16,
     textAlign: 'center',
+    color: '#1d1d1d',
   },
 });

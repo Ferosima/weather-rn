@@ -10,13 +10,11 @@ type Props = {};
 const WeatherEmpty = (props: Props) => {
   return (
     <View style={styles.wrapper}>
-      <View style={styles.content}>
-        <View style={styles.loader}>
-          <AnimatedLottieView source={require('@assets/lottie/oops.json')} autoPlay loop />
-        </View>
-        <Text style={styles.title}>Something went wrong</Text>
-        <Button text="Retry" onPress={weatherStore.fetchWeather} loading={weatherStore.loading} />
+      <View style={styles.loader}>
+        <AnimatedLottieView source={require('@assets/lottie/oops.json')} autoPlay loop />
       </View>
+      <Text style={styles.title}>Something went wrong</Text>
+      <Button text="Retry" onPress={weatherStore.fetchWeather} loading={weatherStore.loading} />
     </View>
   );
 };

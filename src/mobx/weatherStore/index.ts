@@ -46,6 +46,8 @@ export class WeatherStore {
       } else {
         this.error = error.response;
       }
+      this.forecast = null;
+      this.loading = false;
     }
   };
 
@@ -56,7 +58,6 @@ export class WeatherStore {
 
   @action public selectHour = (index: number) => {
     this.selected_hour = index;
-    console.log(index);
 
     if (!moment(this.day.date).isSame(this.hours[index].time, 'day')) {
       const day_index = this.forecast.findIndex(day => moment(day.date).isSame(this.hours[index].time, 'day'));

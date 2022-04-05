@@ -1,10 +1,10 @@
-import { View, Text, FlatList, ViewStyle, StyleProp } from 'react-native';
-import React, { useCallback, useState } from 'react';
-import WeatherDay from '../WeatherDay';
-import { styles } from './styles';
-import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown } from 'react-native-reanimated';
 import { weatherStore } from '@src/mobx/weatherStore';
 import { observer } from 'mobx-react';
+import React, { useCallback } from 'react';
+import { StyleProp, Text, ViewStyle } from 'react-native';
+import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction } from 'react-native-reanimated';
+import WeatherDay from '../WeatherDay';
+import { styles } from './styles';
 
 type Props = {
   style?: StyleProp<ViewStyle>;

@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 16,
+    paddingTop: 10,
   },
   header: {
     width: '100%',

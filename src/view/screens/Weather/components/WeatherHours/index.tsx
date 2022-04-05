@@ -1,13 +1,12 @@
-import { View, Text, ScrollView, FlatList, NativeScrollEvent, NativeSyntheticEvent, StyleProp, ViewStyle } from 'react-native';
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import Card from '@src/view/components/Card';
-import WeatherHour from '../WeatherHour';
-import { styles } from './styles';
-import { useState } from 'react';
-import Animated, { BaseAnimationBuilder, FadeInDown, FadeInLeft, FadeInRight, FadeOutLeft } from 'react-native-reanimated';
-import { EntryExitAnimationFunction } from 'react-native-reanimated';
 import { weatherStore } from '@src/mobx/weatherStore';
 import { observer } from 'mobx-react-lite';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
+import Animated, {
+  BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown, FadeOutUp
+} from 'react-native-reanimated';
+import WeatherHour from '../WeatherHour';
+import { styles } from './styles';
 
 type Props = {
   style?: StyleProp<ViewStyle>;
@@ -23,23 +22,27 @@ const WeatherHours = observer((props: Props) => {
   }, [weatherStore.hours]);
 
   return (
-    <Animated.ScrollView
-      ref={scrollList}
-      entering={props.entering}
-      contentContainerStyle={styles.content}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}>
-      {weatherStore.hours.map((item, index) => (
-        <WeatherHour
-          key={`${item.time}_${index}`}
-          data={item}
-          index={index}
-          isSelected={isSelectedHour(index)}
-          onPress={() => weatherStore.selectHour(index)}
-        />
-      ))}
-    </Animated.ScrollView>
+    <Animated.View entering={props.entering}>
+      <Animated.ScrollView
+        ref={scrollList}
+        entering={FadeInDown}
+        exiting={FadeOutUp}
+        contentContainerStyle={styles.content}
+        horizontal
+        key={weatherStore.selected_day}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}>
+        {weatherStore.hours.map((item, index) => (
+          <WeatherHour
+            key={`${item.time}_${index}`}
+            data={item}
+            index={index}
+            isSelected={isSelectedHour(index)}
+            onPress={() => weatherStore.selectHour(index)}
+          />
+        ))}
+      </Animated.ScrollView>
+    </Animated.View>
   );
 });
 

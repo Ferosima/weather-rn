@@ -7,14 +7,16 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Button, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 
-type Props = { error: string; onClose?: () => void };
+type Props = { error: string; onClose?: () => void; route: any };
 
 const ErrorModal = observer((props: Props) => {
   const sheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['25%'], []);
 
+  const params = useMemo(() => props.route.params, [props.route.params]);
+
   const onClose = useCallback(() => {
-    if (props.onClose) props.onClose();
+    if (params.onClose) params.onClose();
     navigationRef.goBack();
   }, []);
 
@@ -29,7 +31,7 @@ const ErrorModal = observer((props: Props) => {
         style={styles.sheetContainer}
         backdropComponent={ModalBackdrop}>
         <View style={styles.contentContainer}>
-          <Text style={styles.title}>{props.error}</Text>
+          <Text style={styles.title}>{params.title}</Text>
           <TouchableOpacity style={styles.button} onPress={onClose}>
             <Text style={styles.buttonText}>Close</Text>
           </TouchableOpacity>

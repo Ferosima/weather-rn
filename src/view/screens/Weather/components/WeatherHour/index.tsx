@@ -9,7 +9,6 @@ import Animated from 'react-native-reanimated';
 import { useWeatherHourStyle } from './hooks';
 import { styles } from './styles';
 
-
 type Props = {
   isSelected: boolean;
   onPress: () => void;
@@ -24,13 +23,15 @@ const WeatherHour = observer(({ data, isSelected, onPress }: Props) => {
   }, [isSelected]);
 
   return (
-    <Card style={[styles.wrapper, animatedWrapper]} onPress={onPress}>
-      <Row style={styles.row}>
-        <Animated.Text style={[styles.time, animatedTime]}>{moment(data.time).format('HH:mm')}</Animated.Text>
-        <Animated.Image style={[styles.icon, animatedIcon]} source={require('../../../../../../assets/images/mostly-cloud-light.png')} />
-      </Row>
-      <Animated.Text style={[styles.temperature, animatedTemperature]}>{formatTemperature(data.temp_c)}</Animated.Text>
-    </Card>
+    <Animated.View style={[styles.wrapper, animatedWrapper]}>
+      <Card style={styles.content} onPress={onPress}>
+        <Row style={styles.row}>
+          <Animated.Text style={[styles.time, animatedTime]}>{moment(data.time).format('HH:mm')}</Animated.Text>
+          <Animated.Image style={[styles.icon, animatedIcon]} source={require('../../../../../../assets/images/mostly-cloud-light.png')} />
+        </Row>
+        <Animated.Text style={[styles.temperature, animatedTemperature]}>{formatTemperature(data.temp_c)}</Animated.Text>
+      </Card>
+    </Animated.View>
   );
 });
 

@@ -1,25 +1,25 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 10,
     paddingHorizontal: 12,
     marginVertical: 5,
   },
   day: {
-    fontFamily: "Comfortaa-Regular",
-    color: "#203789",
+    fontFamily: 'Comfortaa-Regular',
+    color: '#203789',
     fontSize: 14,
     marginBottom: 4,
     marginTop: 10,
   },
   date: {
-    fontFamily: "Comfortaa-Light",
-    color: "#203789",
+    fontFamily: 'Comfortaa-Light',
+    color: '#203789',
     fontSize: 12,
   },
   icon: {
@@ -27,13 +27,13 @@ export const styles = StyleSheet.create({
     width: 45,
   },
   plus_temperature: {
-    fontFamily: "Comfortaa-Bold",
-    color: "#4A6ADA",
+    fontFamily: 'Comfortaa-Bold',
+    color: '#4A6ADA',
     fontSize: 16,
   },
   minus_temperature: {
-    fontFamily: "Comfortaa-Bold",
-    color: "#203789",
+    fontFamily: 'Comfortaa-Bold',
+    color: '#203789',
     fontSize: 16,
     marginLeft: 20,
   },
@@ -42,9 +42,9 @@ export const styles = StyleSheet.create({
     width: 4,
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
-    position: "absolute",
+    position: 'absolute',
     left: 0,
     marginVertical: 0,
-    backgroundColor: "#4A6ADA",
+    backgroundColor: '#4A6ADA',
   },
 });

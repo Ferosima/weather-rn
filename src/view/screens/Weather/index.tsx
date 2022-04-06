@@ -14,14 +14,12 @@ import WeatherHours from './components/WeatherHours';
 import WeatherInfo from './components/WeatherInfo';
 import { styles } from './styles';
 
-
 interface IBrandsProps extends NativeStackNavigationProp<MainStackParamList, SCREENS.APP> {
   navigation: any;
 }
 
 const WeatherScreen = observer((props: IBrandsProps) => {
   const appState = useRef<AppStateStatus>(AppState.currentState);
-  const render = useMemo(() => weatherStore.forecast && weatherStore.forecast.length, [weatherStore.forecast]);
   const delayRender = useMemo(() => 200, []);
 
   // Update if app was inactive or background

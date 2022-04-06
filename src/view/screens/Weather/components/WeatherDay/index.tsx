@@ -13,7 +13,7 @@ type Props = { day: IWeatherForecast; selected?: boolean; onPress: () => void };
 const WeatherDay = (props: Props) => {
   const { date, day } = props.day;
   return (
-    <Card style={[styles.wrapper]} onPress={props.onPress}>
+    <Card style={styles.wrapper} onPress={props.onPress}>
       {props.selected ? <Animated.View entering={FadeIn.duration(700)} style={styles.selected} /> : null}
       <View>
         <Text style={styles.day}>{moment(date).format('dddd')}</Text>

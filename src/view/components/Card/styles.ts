@@ -1,9 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: "#fff",
-    shadowColor: "#000",
+  wrapper: {},
+  touchable: {
+    backgroundColor: '#fff',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 0,

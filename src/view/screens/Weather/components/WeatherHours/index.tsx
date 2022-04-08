@@ -1,5 +1,5 @@
-import { IWeatherHour } from '@src/common/types/weather';
-import { weatherStore } from '@src/mobx/weatherStore';
+
+import { weatherStore } from '@mobx/weatherStore';
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { FlatList, StyleProp, ViewStyle } from 'react-native';
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const WeatherHours = observer((props: Props) => {
-  const scroll = useAnimatedRef<FlatList | undefined>();
+  const scroll = React.createRef<FlatList | undefined>();
   const isSelectedHour = useCallback(index => index === weatherStore.selected_hour, [weatherStore.selected_hour]);
 
   useEffect(() => {
@@ -24,9 +24,6 @@ const WeatherHours = observer((props: Props) => {
     <Animated.View entering={props.entering}>
       <FlatList
         ref={scroll}
-        key={weatherStore.selected_day}
-        // entering={FadeInDown}
-        // exiting={FadeOutUp}
         data={weatherStore.hours}
         renderItem={({ item, index }) => (
           <WeatherHour
@@ -45,7 +42,6 @@ const WeatherHours = observer((props: Props) => {
         initialNumToRender={4}
         windowSize={5}
         getItemLayout={(data, index) => ({ length: 112, offset: 112 * index, index })}
-        removeClippedSubviews={true}
       />
     </Animated.View>
   );

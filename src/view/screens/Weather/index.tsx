@@ -1,6 +1,7 @@
+import BottomBar from '@containers//BottomBar';
+import { weatherStore } from '@mobx//weatherStore';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { MainStackParamList } from '@src/common/types/navigators';
-import { weatherStore } from '@src/mobx/weatherStore';
+import { MainStackParamList } from '@types//navigators';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { AppState, AppStateStatus, RefreshControl, ScrollView } from 'react-native';
@@ -42,24 +43,27 @@ const WeatherScreen = observer((props: IBrandsProps) => {
   }, [weatherStore.error]);
 
   return (
-    <SafeAreaView edges={['top']} style={styles.wrapper}>
+    <SafeAreaView edges={['top', 'bottom']} style={styles.wrapper}>
       {weatherStore.forecast ? (
-        <ScrollView
-          contentContainerStyle={styles.content}
-          showsVerticalScrollIndicator={false}
-          refreshControl={<RefreshControl refreshing={weatherStore.loading} onRefresh={weatherStore.fetchWeather} />}>
-          {/* Temperature */}
-          <WeatherHeader style={styles.header} entering={FadeInDown.duration(400).delay(1 * delayRender)} />
+        <>
+          <ScrollView
+            contentContainerStyle={styles.content}
+            showsVerticalScrollIndicator={false}
+            refreshControl={<RefreshControl refreshing={weatherStore.loading} onRefresh={weatherStore.fetchWeather} />}>
+            {/* Temperature */}
+            <WeatherHeader style={styles.header} entering={FadeInDown.duration(400).delay(1 * delayRender)} />
 
-          {/* Humidity & Wind & Pressure */}
-          <WeatherInfo style={styles.info} entering={FadeInDown.duration(400).delay(2 * delayRender)} />
+            {/* Humidity & Wind & Pressure */}
+            <WeatherInfo style={styles.info} entering={FadeInDown.duration(400).delay(2 * delayRender)} />
 
-          {/* Hourly Forecast */}
-          <WeatherHours style={styles.hours} entering={FadeInDown.duration(400).delay(3 * delayRender)} />
+            {/* Hourly Forecast */}
+            <WeatherHours style={styles.hours} entering={FadeInDown.duration(400).delay(3 * delayRender)} />
 
-          {/* Dayly Forecast */}
-          <WeatherDays entering={FadeInDown.duration(400).delay(4 * delayRender)} />
-        </ScrollView>
+            {/* Dayly Forecast */}
+            <WeatherDays entering={FadeInDown.duration(400).delay(4 * delayRender)} />
+          </ScrollView>
+          <BottomBar />
+        </>
       ) : (
         <WeatherEmpty />
       )}

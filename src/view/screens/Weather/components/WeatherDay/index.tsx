@@ -1,7 +1,8 @@
-import { IWeatherForecast } from '@src/common/types/weather';
-import { formatTemperature } from '@src/common/utils/formater';
-import Card from '@src/view/components/Card';
-import Row from '@src/view/components/Row';
+
+import Card from '@components/Card';
+import Row from '@components/Row';
+import { IWeatherForecast } from '@types/weather';
+import { formatTemperature } from '@utils/formater';
 import moment from 'moment';
 import React from 'react';
 import { Image, Text, View } from 'react-native';

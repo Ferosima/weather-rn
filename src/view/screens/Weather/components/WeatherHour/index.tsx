@@ -1,11 +1,12 @@
-import { IWeatherHour } from '@src/common/types/weather';
-import { formatTemperature } from '@src/common/utils/formater';
-import Card from '@src/view/components/Card';
-import Row from '@src/view/components/Row';
+
+import Card from '@components/Card';
+import Row from '@components/Row';
+import { IWeatherHour } from '@types/weather';
+import { formatTemperature } from '@utils/formater';
 import { observer } from 'mobx-react';
 import moment from 'moment';
 import React, { useEffect } from 'react';
-import Animated from 'react-native-reanimated';
+import Animated, { FadeInDown, FadeOutUp } from 'react-native-reanimated';
 import { useWeatherHourStyle } from './hooks';
 import { styles } from './styles';
 
@@ -23,7 +24,7 @@ const WeatherHour = observer(({ data, isSelected, onPress }: Props) => {
   }, [isSelected]);
 
   return (
-    <Animated.View style={[styles.wrapper, animatedWrapper]}>
+    <Animated.View style={[styles.wrapper, animatedWrapper]} entering={FadeInDown} exiting={FadeOutUp}>
       <Card style={styles.content} onPress={onPress}>
         <Row style={styles.row}>
           <Animated.Text style={[styles.time, animatedTime]}>{moment(data.time).format('HH:mm')}</Animated.Text>

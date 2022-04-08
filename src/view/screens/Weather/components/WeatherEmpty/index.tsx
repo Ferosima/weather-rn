@@ -1,5 +1,6 @@
-import { weatherStore } from '@src/mobx/weatherStore';
-import Button from '@src/view/components/Button';
+
+import Button from '@components/Button';
+import { weatherStore } from '@mobx/weatherStore';
 import AnimatedLottieView from 'lottie-react-native';
 import React from 'react';
 import { Text, View } from 'react-native';

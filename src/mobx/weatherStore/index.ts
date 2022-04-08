@@ -1,6 +1,7 @@
-import { IResponse } from '@src/common/types';
-import { delay } from '@src/common/utils';
-import { filterHours } from '@src/common/utils/formater';
+
+import { IResponse } from '@types';
+import { delay } from '@utils/index';
+import { filterHours } from '@utils/formater';
 import { action, observable } from 'mobx';
 import { create, persist } from 'mobx-persist';
 import moment from 'moment';

@@ -1,3 +1,4 @@
+import { BOTTOM_BAR_HEIGHT } from '@constants/';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -8,6 +9,7 @@ export const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 16,
     paddingTop: 10,
+    paddingBottom: BOTTOM_BAR_HEIGHT,
   },
   header: {
     width: '100%',

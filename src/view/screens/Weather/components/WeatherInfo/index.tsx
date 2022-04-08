@@ -1,24 +1,18 @@
-import { View, Text, StyleProp, ViewStyle } from "react-native";
-import React from "react";
-import { styles } from "./styles";
-import Row from "@src/view/components/Row";
-import Card from "@src/view/components/Card";
-import Icon from "@src/view/components/Icon";
-import Animated, {
-  BaseAnimationBuilder,
-  EntryExitAnimationFunction,
-  FadeInDown,
-} from "react-native-reanimated";
-import { weatherStore } from "@src/mobx/weatherStore";
-import { observer } from "mobx-react-lite";
+import { View, Text, StyleProp, ViewStyle } from 'react-native';
+import React from 'react';
+import { styles } from './styles';
+
+import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown } from 'react-native-reanimated';
+
+import { observer } from 'mobx-react-lite';
+import { weatherStore } from '@mobx/weatherStore';
+import Card from '@components/Card';
+import Row from '@components/Row';
+import Icon from '@components/Icon';
 
 type Props = {
   style?: StyleProp<ViewStyle>;
-  entering?:
-    | BaseAnimationBuilder
-    | typeof BaseAnimationBuilder
-    | EntryExitAnimationFunction
-    | Keyframe;
+  entering?: BaseAnimationBuilder | typeof BaseAnimationBuilder | EntryExitAnimationFunction | Keyframe;
 };
 
 const WeatherInfo = observer((props: Props) => {
@@ -28,17 +22,17 @@ const WeatherInfo = observer((props: Props) => {
       <Card style={[styles.wrapper, props.style]}>
         {/* Humidity */}
         <Row style={styles.box}>
-          <Icon name="drop" size={22} color={"#4A6ADD"} />
+          <Icon name="drop" size={22} color={'#4A6ADD'} />
           <Text style={styles.text}>{humidity}%</Text>
         </Row>
         {/* Wind */}
         <Row style={[styles.box, { paddingLeft: 10 }]}>
-          <Icon name="wind" size={22} color={"#4A6ADD"} />
+          <Icon name="wind" size={22} color={'#4A6ADD'} />
           <Text style={styles.text}>{wind_kph}km/h</Text>
         </Row>
         {/* Pressure */}
-        <Row style={[styles.box, { justifyContent: "flex-end" }]}>
-          <Icon name="pressure" size={22} color={"#4A6ADD"} />
+        <Row style={[styles.box, { justifyContent: 'flex-end' }]}>
+          <Icon name="pressure" size={22} color={'#4A6ADD'} />
           <Text style={styles.text}>{pressure_mb}mBar</Text>
         </Row>
       </Card>

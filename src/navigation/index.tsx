@@ -1,12 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SCREENS } from '@src/common/constants/screens';
-import { MainStackParamList } from '@src/common/types/navigators';
-import { navigationRef } from '@src/common/utils/navigation';
-import ErrorModal from '@src/view/containers/ErrorModal';
-import WeatherScreen from '@src/view/screens/Weather';
+
 import { observer } from 'mobx-react';
 import React from 'react';
+import { SCREENS } from '@constants/screens';
+import { navigationRef } from '@utils/navigation';
+import ErrorModal from '@containers/ErrorModal';
+import WeatherScreen from '@screens/Weather';
+import { MainStackParamList } from '@types/navigators';
 
 const Main = createNativeStackNavigator<MainStackParamList>();
 

@@ -1,4 +1,4 @@
-import { weatherStore } from '@src/mobx/weatherStore';
+import { weatherStore } from '@mobx/weatherStore';
 import { observer } from 'mobx-react';
 import React, { useCallback } from 'react';
 import { StyleProp, Text, ViewStyle } from 'react-native';

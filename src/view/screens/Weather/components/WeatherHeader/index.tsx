@@ -1,11 +1,12 @@
-import { formatTemperature } from '@src/common/utils/formater';
-import { weatherStore } from '@src/mobx/weatherStore';
+
+import { weatherStore } from '@mobx/weatherStore';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import moment from 'moment';
 import React from 'react';
 import { Image, StyleProp, Text, View, ViewStyle } from 'react-native';
 import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown } from 'react-native-reanimated';
+import { formatTemperature } from 'src/common/utils/formater';
 import { styles } from './styles';
 
 type Props = {

@@ -5,20 +5,18 @@
       "module-resolver",
       {
         "root": ["."],
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          ".android.js",
-          ".android.tsx",
-          ".ios.js",
-          ".ios.tsx"
-        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".android.js", ".android.tsx", ".ios.js", ".ios.tsx"],
         "alias": {
           "@assets/*": ["./assets/*"],
-          "@components/*": ["./src/components/*"],
-          "@src/*": ["./src/*"]
+          "@utils/*": ["./src/common/utils/*"],
+          "@types/*": ["./src/common/types/*"],
+          "@constants/*": ["./src/common/constants/*"],
+          "@mobx/*": ["./src/mobx/*"],
+          "@navigation/*": ["./src/navigation/*"],
+          "@requests/*": ["./src/requests/*"],
+          "@containers/*": ["./src/view/containers/*"],
+          "@components/*": ["./src/view/components/*"],
+          "@screens/*": ["./src/view/screens/*"]
         }
       }
     ]

@@ -19,10 +19,12 @@ export const styles = StyleSheet.create({
   container: {
     //+50 for blur content
     height: BOTTOM_BAR_HEIGHT + 50,
-    justifyContent: 'space-around',
-    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
     marginHorizontal: 30,
-    paddingTop: 10,
-    paddingBottom: 15,
+    paddingBottom: 10,
+  },
+  tabs: {
+    //+50 for blur content
+    alignItems: 'center',
   },
 });

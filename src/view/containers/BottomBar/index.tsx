@@ -1,23 +1,28 @@
 import Row from '@components/Row';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Image, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Tab from './components/Tab';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import BottomTab from './components/BottomTab';
 import { styles } from './styles';
 
 type Props = {};
 
 const BottomBar = (props: Props) => {
+  const insets = useSafeAreaInsets();
+  const paddingBottom = useMemo(() => (insets.bottom ? insets.bottom - 10 : styles.container.paddingBottom), [insets]);
+
   return (
-    <SafeAreaView edges={['bottom']} style={styles.wrapper}>
+    <View style={styles.wrapper}>
       <Image style={styles.background} source={require('@assets/images/bottom_background.png')} />
-      <Row style={styles.container}>
-        <Tab name="Search" icon="search" />
-        <Tab name="Weather" icon="weather" active />
-        <Tab name="Menu" icon="menu" />
-      </Row>
-    </SafeAreaView>
+      <View style={[styles.container, { paddingBottom: paddingBottom }]}>
+        <Row style={styles.tabs}>
+          <BottomTab name="Search" icon="search" />
+          <BottomTab name="Weather" icon="weather" active />
+          <BottomTab name="Menu" icon="menu" />
+        </Row>
+      </View>
+    </View>
   );
 };
 

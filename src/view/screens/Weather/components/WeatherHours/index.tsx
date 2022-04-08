@@ -1,10 +1,9 @@
+import { IWeatherHour } from '@src/common/types/weather';
 import { weatherStore } from '@src/mobx/weatherStore';
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect, useRef } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-import Animated, {
-  BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown, FadeOutUp
-} from 'react-native-reanimated';
+import { FlatList, StyleProp, ViewStyle } from 'react-native';
+import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown, FadeOutUp } from 'react-native-reanimated';
 import WeatherHour from '../WeatherHour';
 import { styles } from './styles';
 
@@ -14,16 +13,40 @@ type Props = {
 };
 
 const WeatherHours = observer((props: Props) => {
-  const scrollList = useRef<Animated.ScrollView>(null);
+  const scroll = useRef<FlatList | undefined>(undefined);
   const isSelectedHour = useCallback(index => index === weatherStore.selected_hour, [weatherStore.selected_hour]);
 
   useEffect(() => {
-    scrollList?.current?.scrollTo({ x: weatherStore.selected_hour * 112 });
-  }, [weatherStore.hours]);
+    scroll?.current?.scrollToIndex({ index: weatherStore.selected_hour, viewOffset: 20 });
+  }, [weatherStore.hours, weatherStore.selected_hour]);
 
   return (
     <Animated.View entering={props.entering}>
-      <Animated.ScrollView
+      <Animated.View key={weatherStore.selected_day} entering={FadeInDown} exiting={FadeOutUp}>
+        <FlatList
+          ref={scroll}
+          data={weatherStore.hours}
+          renderItem={({ item, index }) => (
+            <WeatherHour
+              key={`${item.time}_${index}`}
+              data={item}
+              index={index}
+              isSelected={isSelectedHour(index)}
+              onPress={() => weatherStore.selectHour(index)}
+            />
+          )}
+          maxToRenderPerBatch={4}
+          initialNumToRender={4}
+          windowSize={10}
+          removeClippedSubviews={true}
+          contentContainerStyle={styles.content}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
+      </Animated.View>
+
+      {/* <Animated.ScrollView
         ref={scrollList}
         entering={FadeInDown}
         exiting={FadeOutUp}
@@ -41,7 +64,7 @@ const WeatherHours = observer((props: Props) => {
             onPress={() => weatherStore.selectHour(index)}
           />
         ))}
-      </Animated.ScrollView>
+      </Animated.ScrollView> */}
     </Animated.View>
   );
 });

@@ -1,7 +1,6 @@
 import BottomBar from '@containers/BottomBar';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MenuScreen from '@screens/Search';
+import MenuScreen from '@screens/Menu';
 import SearchScreen from '@screens/Search';
 import { BottomTabParamList } from '@types/navigators';
 import React from 'react';

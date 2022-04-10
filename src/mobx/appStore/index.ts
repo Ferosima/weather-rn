@@ -9,7 +9,6 @@ export class AppStore {
 
   setCurrentScreen = (screen: keyof BottomTabParamList) => {
     this.screen = screen;
-    console.log('SC', this.screen);
   };
 
   async afterHydration() {}

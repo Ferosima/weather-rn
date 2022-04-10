@@ -58,7 +58,6 @@ export class WeatherStore {
       console.log('FETCH CITY');
       const response: IResponse<ICity> = await fetchCity(city);
       this.cities = response.data;
-      console.log(response.data);
     } catch (error) {
       console.log('FETCH CITY ERROR', { error });
       if (!error?.response) {

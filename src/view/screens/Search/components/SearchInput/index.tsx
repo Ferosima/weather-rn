@@ -12,9 +12,9 @@ const SearchInput = observer((props: Props) => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    if (search.length > 2) fetchCity(search);
     if (!search.length) clearSearch();
-  }, [search]);
+    if (search.length > 2) fetchCity(search);
+  }, [search, weatherStore.cities]);
 
   const fetchCity = useCallback(
     debounce(city => weatherStore.fetchCity(city), 300),

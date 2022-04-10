@@ -1,5 +1,4 @@
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { BottomTabParamList, TRoute } from '@types/navigators';
+import { BottomTabParamList } from '@types/navigators';
 import { observable } from 'mobx';
 import { persist } from 'mobx-persist';
 

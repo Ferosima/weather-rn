@@ -14,7 +14,10 @@ const SearchScreen = observer((props: Props) => {
 
   return (
     <SafeAreaView edges={['top']} style={styles.wrapper}>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={20}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 130}>
         <SearchCities entering={FadeInDown.duration(400).delay(1 * delayRender)} />
         <SearchInput entering={FadeInDown.duration(400).delay(2 * delayRender)} />
       </KeyboardAvoidingView>

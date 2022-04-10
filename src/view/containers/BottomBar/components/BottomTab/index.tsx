@@ -35,7 +35,7 @@ const BottomTab = observer(({ name, icon, screen }: Props) => {
     if (isActive) {
       color.value = withTiming(styles.active.color, timingOptions);
       fontSize.value = withTiming(14, timingOptions);
-      lineHeight.value = withTiming(16, timingOptions);
+      lineHeight.value = withTiming(18, timingOptions);
     } else {
       color.value = withTiming(styles.inactive.color, timingOptions);
       fontSize.value = withTiming(0, timingOptions);

@@ -11,5 +11,12 @@ export const styles = StyleSheet.create({
   title: {
     fontFamily: 'Comfortaa-Regular',
     marginTop: 7,
+    overflow: 'hidden',
+  },
+  active: {
+    color: '#203789',
+  },
+  inactive: {
+    color: '#A8B2D3',
   },
 });

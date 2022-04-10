@@ -1,7 +1,9 @@
 import Row from '@components/Row';
+import { SCREENS } from '@constants/screens';
 
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Image, View } from 'react-native';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import BottomTab from './components/BottomTab';
 import { styles } from './styles';
@@ -13,16 +15,16 @@ const BottomBar = (props: Props) => {
   const paddingBottom = useMemo(() => (insets.bottom ? insets.bottom - 10 : styles.container.paddingBottom), [insets]);
 
   return (
-    <View style={styles.wrapper}>
+    <Animated.View style={styles.wrapper} entering={FadeInDown.delay(1000)}>
       <Image style={styles.background} source={require('@assets/images/bottom_background.png')} />
       <View style={[styles.container, { paddingBottom: paddingBottom }]}>
         <Row style={styles.tabs}>
-          <BottomTab name="Search" icon="search" />
-          <BottomTab name="Weather" icon="weather" active />
-          <BottomTab name="Menu" icon="menu" />
+          <BottomTab name="Search" icon="search" screen={SCREENS.SEARCH} />
+          <BottomTab name="Weather" icon="weather" screen={SCREENS.WEATHER} />
+          <BottomTab name="Menu" icon="menu" screen={SCREENS.MENU} />
         </Row>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 

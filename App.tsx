@@ -7,6 +7,10 @@ import mainStore from './src/mobx';
 import MainNavigator from './src/navigation';
 import Loader from './src/view/components/Loader';
 
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
+
 const App = () => {
   const [loading, setLoading] = useState(Boolean);
 

@@ -12,12 +12,12 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8410A34127D9345C0062767F /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70BE2BF21BF248CF9EB81CBE /* Comfortaa-Regular.ttf */; };
-		8410A34227D934750062767F /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88EF43DDB2984F388B12C8F8 /* Comfortaa-Bold.ttf */; };
-		8410A35627D934BE0062767F /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8014919F5E0F4C6CA72436DD /* Comfortaa-Light.ttf */; };
-		8410A35727D934BE0062767F /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2F12921C78C4AAEBD6002DF /* Comfortaa-Medium.ttf */; };
-		8410A35827D934BE0062767F /* Comfortaa-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7DC02D1413A4014B2CEAB24 /* Comfortaa-SemiBold.ttf */; };
-		8410A35C27D9374E0062767F /* fontello.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8410A35B27D937030062767F /* fontello.ttf */; };
+		84D428CF28037CEB0075BC9C /* Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D428CE28037C780075BC9C /* Icons.ttf */; };
+		84D428D528037D840075BC9C /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D428D028037D600075BC9C /* Comfortaa-Bold.ttf */; };
+		84D428D628037D840075BC9C /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D428D328037D600075BC9C /* Comfortaa-Light.ttf */; };
+		84D428D728037D840075BC9C /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D428D228037D600075BC9C /* Comfortaa-Medium.ttf */; };
+		84D428D828037D840075BC9C /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D428D128037D600075BC9C /* Comfortaa-Regular.ttf */; };
+		84D428D928037D840075BC9C /* Comfortaa-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D428D428037D610075BC9C /* Comfortaa-SemiBold.ttf */; };
 		87146F447B4441E76A4A5650 /* libPods-weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5A1F18A921F65BB9ED4A62 /* libPods-weather.a */; };
 		E01BCBB8DCA0A8C03542060F /* libPods-weather-weatherTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7EC9520221FF4F85A5A9DE2 /* libPods-weather-weatherTests.a */; };
 /* End PBXBuildFile section */
@@ -51,11 +51,13 @@
 		3423EF72CFEB462BAC523053 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		3CC9C361AB70F59C32914777 /* Pods-weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather.release.xcconfig"; path = "Target Support Files/Pods-weather/Pods-weather.release.xcconfig"; sourceTree = "<group>"; };
 		501E074CB60C4860866F7093 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		70BE2BF21BF248CF9EB81CBE /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comfortaa-Regular.ttf"; path = "../assets/fonts/Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
-		8014919F5E0F4C6CA72436DD /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comfortaa-Light.ttf"; path = "../assets/fonts/Comfortaa-Light.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = weather/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8410A35B27D937030062767F /* fontello.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fontello.ttf; path = ../assets/icons/font/fontello.ttf; sourceTree = "<group>"; };
-		88EF43DDB2984F388B12C8F8 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comfortaa-Bold.ttf"; path = "../assets/fonts/Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
+		84D428CE28037C780075BC9C /* Icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Icons.ttf; path = ../assets/fonts/Icons/Icons.ttf; sourceTree = "<group>"; };
+		84D428D028037D600075BC9C /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-Bold.ttf"; path = "../assets/fonts/Comfortaa/Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
+		84D428D128037D600075BC9C /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-Regular.ttf"; path = "../assets/fonts/Comfortaa/Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
+		84D428D228037D600075BC9C /* Comfortaa-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-Medium.ttf"; path = "../assets/fonts/Comfortaa/Comfortaa-Medium.ttf"; sourceTree = "<group>"; };
+		84D428D328037D600075BC9C /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-Light.ttf"; path = "../assets/fonts/Comfortaa/Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		84D428D428037D610075BC9C /* Comfortaa-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-SemiBold.ttf"; path = "../assets/fonts/Comfortaa/Comfortaa-SemiBold.ttf"; sourceTree = "<group>"; };
 		9AC789D1354D41B8898C1A84 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		9B5A1F18A921F65BB9ED4A62 /* libPods-weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A1A65235724A7F8A1F5786 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -65,12 +67,10 @@
 		C133718F3CDA400CB11B7501 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		CBEF22A9FE8446B19DFE66A4 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		DF9BFBEF86A34EA5A6ED0943 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		E2F12921C78C4AAEBD6002DF /* Comfortaa-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comfortaa-Medium.ttf"; path = "../assets/fonts/Comfortaa-Medium.ttf"; sourceTree = "<group>"; };
 		E5E61542414FD76A422D63F8 /* Pods-weather-weatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather-weatherTests.release.xcconfig"; path = "Target Support Files/Pods-weather-weatherTests/Pods-weather-weatherTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EF71849B53B84207BF69F856 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		EFD18F1525784A13A9265BEC /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		F7DC02D1413A4014B2CEAB24 /* Comfortaa-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comfortaa-SemiBold.ttf"; path = "../assets/fonts/Comfortaa-SemiBold.ttf"; sourceTree = "<group>"; };
 		FC09C5388B744185AB757643 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,12 +137,12 @@
 		7B63685930BA41EA8B355E18 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8410A35B27D937030062767F /* fontello.ttf */,
-				88EF43DDB2984F388B12C8F8 /* Comfortaa-Bold.ttf */,
-				8014919F5E0F4C6CA72436DD /* Comfortaa-Light.ttf */,
-				E2F12921C78C4AAEBD6002DF /* Comfortaa-Medium.ttf */,
-				70BE2BF21BF248CF9EB81CBE /* Comfortaa-Regular.ttf */,
-				F7DC02D1413A4014B2CEAB24 /* Comfortaa-SemiBold.ttf */,
+				84D428D028037D600075BC9C /* Comfortaa-Bold.ttf */,
+				84D428D328037D600075BC9C /* Comfortaa-Light.ttf */,
+				84D428D228037D600075BC9C /* Comfortaa-Medium.ttf */,
+				84D428D128037D600075BC9C /* Comfortaa-Regular.ttf */,
+				84D428D428037D610075BC9C /* Comfortaa-SemiBold.ttf */,
+				84D428CE28037C780075BC9C /* Icons.ttf */,
 				29BF5D6701794F4A96D16EDC /* AntDesign.ttf */,
 				501E074CB60C4860866F7093 /* Entypo.ttf */,
 				A7007B9FE9F9446888F102AF /* EvilIcons.ttf */,
@@ -300,12 +300,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8410A35C27D9374E0062767F /* fontello.ttf in Resources */,
-				8410A35627D934BE0062767F /* Comfortaa-Light.ttf in Resources */,
-				8410A35727D934BE0062767F /* Comfortaa-Medium.ttf in Resources */,
-				8410A35827D934BE0062767F /* Comfortaa-SemiBold.ttf in Resources */,
-				8410A34227D934750062767F /* Comfortaa-Bold.ttf in Resources */,
-				8410A34127D9345C0062767F /* Comfortaa-Regular.ttf in Resources */,
+				84D428D528037D840075BC9C /* Comfortaa-Bold.ttf in Resources */,
+				84D428D628037D840075BC9C /* Comfortaa-Light.ttf in Resources */,
+				84D428D728037D840075BC9C /* Comfortaa-Medium.ttf in Resources */,
+				84D428D828037D840075BC9C /* Comfortaa-Regular.ttf in Resources */,
+				84D428D928037D840075BC9C /* Comfortaa-SemiBold.ttf in Resources */,
+				84D428CF28037CEB0075BC9C /* Icons.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

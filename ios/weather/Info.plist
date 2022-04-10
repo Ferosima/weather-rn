@@ -39,7 +39,7 @@
 	<string/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>fontello.ttf</string>
+		<string>Icons.ttf</string>
 		<string>Comfortaa-Bold.ttf</string>
 		<string>Comfortaa-Light.ttf</string>
 		<string>Comfortaa-Medium.ttf</string>

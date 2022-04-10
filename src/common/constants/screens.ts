@@ -4,5 +4,5 @@ export enum SCREENS {
   APP = 'APP',
   WEATHER = 'WEATHER',
   SEARCH = 'SEARCH',
-  MORE = 'MORE',
+  MENU = 'MENU',
 }

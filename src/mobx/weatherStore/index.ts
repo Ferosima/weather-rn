@@ -1,15 +1,16 @@
-
 import { IResponse } from '@types';
 import { delay } from '@utils/index';
 import { filterHours } from '@utils/formater';
 import { action, observable } from 'mobx';
 import { create, persist } from 'mobx-persist';
 import moment from 'moment';
-import { IWeather, IWeatherCurrent, IWeatherForecast, IWeatherLocation } from '../../common/types/weather';
-import { fetchWeather } from '../../requests/weather';
+import { ICity, IWeather, IWeatherCurrent, IWeatherForecast, IWeatherLocation } from '../../common/types/weather';
+import { fetchCity, fetchWeather } from '../../requests/weather';
 
 export class WeatherStore {
   @observable public forecast: IWeatherForecast[] | null = null;
+  @observable public cities: ICity[] | null = null;
+
   @persist('object') @observable public location: IWeatherLocation | null = null;
   @persist @observable public city: string = 'Kiev';
 
@@ -52,6 +53,30 @@ export class WeatherStore {
     }
   };
 
+  @action public fetchCity = async (city: string) => {
+    try {
+      console.log('FETCH CITY');
+      const response: IResponse<ICity> = await fetchCity(city);
+      this.cities = response.data;
+      console.log(response.data);
+    } catch (error) {
+      console.log('FETCH CITY ERROR', { error });
+      if (!error?.response) {
+        this.error = 'Network error';
+      } else {
+        this.error = error.response;
+      }
+      this.forecast = null;
+      this.cities = null;
+      this.loading = false;
+    }
+  };
+
+  @action public selectCity = (city: string) => {
+    this.city = city;
+    this.fetchWeather();
+  };
+
   @action public selectDay = (index: number, hour_index: number = 0) => {
     this.selected_day = index;
     this.selected_hour = hour_index;
@@ -65,6 +90,10 @@ export class WeatherStore {
       const hour_index = this.forecast[day_index].hour.findIndex(day => moment(day.time).isSame(this.hours[index].time, 'hour'));
       this.selectDay(day_index, hour_index);
     }
+  };
+
+  @action public clearCities = () => {
+    this.cities = null;
   };
 
   @action public clearError = () => {

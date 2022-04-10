@@ -45,7 +45,6 @@ const BottomTab = observer(({ name, icon, screen }: Props) => {
 
   const goTo = useCallback(() => {
     navigation.navigate(screen, {});
-    appStore.setCurrentScreen(screen);
   }, [navigation, screen]);
 
   return (

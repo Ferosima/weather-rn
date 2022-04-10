@@ -12,17 +12,15 @@ const BottomBarStack = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTabNavigator = props => {
   return (
-    <>
-      <BottomBarStack.Navigator
-        tabBar={() => <BottomBar />}
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <BottomBarStack.Screen name={SCREENS.WEATHER} component={WeatherScreen} />
-        <BottomBarStack.Screen name={SCREENS.SEARCH} component={SearchScreen} />
-        <BottomBarStack.Screen name={SCREENS.MENU} component={MenuScreen} />
-      </BottomBarStack.Navigator>
-    </>
+    <BottomBarStack.Navigator
+      tabBar={() => <BottomBar />}
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <BottomBarStack.Screen name={SCREENS.WEATHER} component={WeatherScreen} options={{ unmountOnBlur: true }} />
+      <BottomBarStack.Screen name={SCREENS.SEARCH} component={SearchScreen} options={{ unmountOnBlur: true }} />
+      <BottomBarStack.Screen name={SCREENS.MENU} component={MenuScreen} options={{ unmountOnBlur: true }} />
+    </BottomBarStack.Navigator>
   );
 };
 

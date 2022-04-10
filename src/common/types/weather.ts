@@ -53,3 +53,10 @@ export interface IWeatherHour {
   humidity: string;
   pressure_mb: string;
 }
+
+export interface ICity {
+  id: string;
+  name: string;
+  region: string;
+  country: string;
+}

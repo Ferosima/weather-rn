@@ -1,23 +1,25 @@
-import Input from '@components/Input';
-import React, { useState } from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
+import { observer } from 'mobx-react';
+import React, { useMemo } from 'react';
+import { KeyboardAvoidingView, Platform } from 'react-native';
+import { FadeInDown } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import SearchCities from './components/SearchCities';
 import SearchInput from './components/SearchInput';
 import { styles } from './styles';
 
 type Props = {};
 
-const SearchScreen = (props: Props) => {
-  const [search, setSearch] = useState('');
-
-  console.log(search);
+const SearchScreen = observer((props: Props) => {
+  const delayRender = useMemo(() => 200, []);
 
   return (
     <SafeAreaView edges={['top']} style={styles.wrapper}>
-      <ScrollView contentContainerStyle={styles.content} style={{ flex: 1 }} showsVerticalScrollIndicator={false}></ScrollView>
-      <SearchInput />
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={20}>
+        <SearchCities entering={FadeInDown.duration(400).delay(1 * delayRender)} />
+        <SearchInput entering={FadeInDown.duration(400).delay(2 * delayRender)} />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
-};
+});
 
 export default SearchScreen;

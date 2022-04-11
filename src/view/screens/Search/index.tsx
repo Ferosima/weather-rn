@@ -17,7 +17,7 @@ const SearchScreen = observer((props: Props) => {
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 130}>
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 115}>
         <SearchCities entering={FadeInDown.duration(400).delay(1 * delayRender)} />
         <SearchInput entering={FadeInDown.duration(400).delay(2 * delayRender)} />
       </KeyboardAvoidingView>

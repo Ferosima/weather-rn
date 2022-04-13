@@ -1,8 +1,7 @@
 import { SCREENS } from '@constants/screens';
 import { appStore } from '@mobx/appStore';
 import { createNavigationContainerRef } from '@react-navigation/native';
-
-// export const navigationRef = createNavigationContainerRef();
+const bottom_bar = [SCREENS.WEATHER, SCREENS.MENU, SCREENS.SEARCH];
 
 class Navigation {
   ref = createNavigationContainerRef();
@@ -10,7 +9,8 @@ class Navigation {
   navigate = (name: keyof SCREENS, params) => {
     if (this.ref.isReady()) {
       this.ref.navigate(name, params);
-      appStore.setCurrentScreen(name);
+      // Set current only bottom bar screen
+      if (bottom_bar.includes(name)) appStore.setCurrentScreen(name);
     }
   };
 

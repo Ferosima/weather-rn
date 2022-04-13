@@ -1,10 +1,11 @@
-
+import Text from '@components/Text';
+import { appStore } from '@mobx/appStore';
 import { weatherStore } from '@mobx/weatherStore';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import moment from 'moment';
 import React from 'react';
-import { Image, StyleProp, Text, View, ViewStyle } from 'react-native';
+import { Image, StyleProp, View, ViewStyle } from 'react-native';
 import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown } from 'react-native-reanimated';
 import { formatTemperature } from 'src/common/utils/formater';
 import { styles } from './styles';
@@ -15,19 +16,31 @@ type Props = {
 };
 
 const WeatherHeader = observer((props: Props) => {
-  const { day } = weatherStore.day;
-  const { condition } = day;
+  const { condition } = weatherStore.hour;
+  console.log(
+    weatherStore.hours.map(i => console.log(i.temp_c, i.time)),
+    weatherStore.selected_hour,
+    weatherStore.hours[weatherStore.selected_hour],
+  );
 
   return (
     <Animated.View style={[styles.wrapper, props.style]} entering={props.entering}>
-      <Image style={styles.background} source={require('../../../../../../assets/images/home_header.png')} />
+      <Image style={styles.background} source={appStore.theme.image.header_background} />
       <View style={styles.container}>
         <View style={styles.row}>
           <View style={styles.weather}>
-            <Text style={styles.city}>{weatherStore.location?.name}</Text>
-            <Text style={styles.date}>{moment(weatherStore.day.date).format('dddd DD MMMM')}</Text>
-            <Text style={styles.temperature}>{formatTemperature(weatherStore.hour.temp_c)}</Text>
-            <Text style={styles.weather_description}>{condition.text}</Text>
+            <Text preset="light" style={styles.city}>
+              {weatherStore.location?.name}
+            </Text>
+            <Text preset="light" style={styles.date}>
+              {moment(weatherStore.hour.time).format('dddd DD MMMM')}
+            </Text>
+            <Text preset="light" style={styles.temperature}>
+              {formatTemperature(weatherStore.hour.temp_c)}
+            </Text>
+            <Text preset="light" style={styles.weather_description}>
+              {condition.text}
+            </Text>
           </View>
 
           <Image

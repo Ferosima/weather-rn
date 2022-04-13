@@ -1,7 +1,13 @@
 import moment from 'moment';
 import { IWeatherForecast } from '../types/weather';
 
-export const formatTemperature = (temperature: string | number) => {
+export /**
+ * Format temperature
+ * Rounds up, adds a Celsius sign
+ * @param {(string | number)} temperature
+ * @return {*}
+ */
+const formatTemperature = (temperature: string | number) => {
   // format temp to number
   temperature = Number(temperature);
 
@@ -9,7 +15,14 @@ export const formatTemperature = (temperature: string | number) => {
   return `${roundTemperature > 0 ? `+${roundTemperature}` : roundTemperature}°`;
 };
 
-export const filterHours = (forecast: IWeatherForecast[], day: number = 0) => {
+export /**
+ * Filter fetched hours
+ * If there is not enough forecast up to 24 hours, then it takes from the next day
+ * @param {IWeatherForecast[]} forecast
+ * @param {number} [day=0]
+ * @return {*} 24 forecast hours
+ */
+const filterHours = (forecast: IWeatherForecast[], day: number = 0) => {
   let hours = forecast[day].hour.filter(({ time }) => moment().add(-1, 'hour').isBefore(moment(time), 'hour'));
 
   // add hours from next days

@@ -12,14 +12,12 @@ export const styles = StyleSheet.create({
   },
   day: {
     fontFamily: 'Comfortaa-Regular',
-    color: '#203789',
     fontSize: 14,
     marginBottom: 4,
     marginTop: 10,
   },
   date: {
     fontFamily: 'Comfortaa-Light',
-    color: '#203789',
     fontSize: 12,
   },
   icon: {
@@ -28,12 +26,10 @@ export const styles = StyleSheet.create({
   },
   plus_temperature: {
     fontFamily: 'Comfortaa-Bold',
-    color: '#4A6ADA',
     fontSize: 16,
   },
   minus_temperature: {
     fontFamily: 'Comfortaa-Bold',
-    color: '#203789',
     fontSize: 16,
     marginLeft: 20,
   },

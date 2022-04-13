@@ -23,13 +23,9 @@ export const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   time: {
-    fontFamily: 'Comfortaa-Regular',
-    color: '#203789',
     fontSize: 14,
   },
   temperature: {
-    fontFamily: 'Comfortaa-Regular',
-    color: '#203789',
     fontSize: 24,
   },
 });

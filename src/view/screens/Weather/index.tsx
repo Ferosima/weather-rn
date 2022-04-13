@@ -1,8 +1,9 @@
+import Box from '@components/Box';
 import BottomBar from '@containers//BottomBar';
 import { weatherStore } from '@mobx//weatherStore';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { MainStackParamList } from '@types//navigators';
-import { navigationRef } from '@utils/navigation';
+import { navigation, navigationRef } from '@utils/navigation';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { AppState, AppStateStatus, RefreshControl, ScrollView } from 'react-native';
@@ -40,12 +41,11 @@ const WeatherScreen = observer((props: IBrandsProps) => {
 
   // Go to Modal
   useEffect(() => {
-    if (weatherStore.error && navigationRef.isReady())
-      navigationRef.navigate(SCREENS.ERROR, { title: weatherStore.error, onClose: weatherStore.clearError });
+    if (weatherStore.error) navigation.navigate(SCREENS.ERROR, { title: weatherStore.error, onClose: weatherStore.clearError });
   }, [weatherStore.error]);
 
   return (
-    <SafeAreaView edges={['top', 'bottom']} style={styles.wrapper}>
+    <Box edges={['top']} style={styles.wrapper}>
       {weatherStore.forecast ? (
         <>
           <ScrollView
@@ -68,7 +68,7 @@ const WeatherScreen = observer((props: IBrandsProps) => {
       ) : (
         <WeatherEmpty />
       )}
-    </SafeAreaView>
+    </Box>
   );
 });
 

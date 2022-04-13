@@ -16,10 +16,11 @@ type Props = {
 };
 
 const BottomTab = observer(({ name, icon, screen }: Props) => {
+  const theme = useMemo(() => appStore.theme.bottomBar, [appStore.theme]);
   const isActive = useMemo(() => appStore.screen === screen, [appStore.screen, screen]);
   const [color, fontSize, lineHeight] = isActive
-    ? [useSharedValue(styles.active.color), useSharedValue(14), useSharedValue(16)]
-    : [useSharedValue(styles.inactive.color), useSharedValue(0), useSharedValue(0)];
+    ? [useSharedValue(theme.active.color), useSharedValue(14), useSharedValue(16)]
+    : [useSharedValue(theme.inactive.color), useSharedValue(0), useSharedValue(0)];
   const timingOptions = {
     duration: 350,
     easing: Easing.bezier(0.25, 0.1, 0.25, 1),
@@ -33,11 +34,11 @@ const BottomTab = observer(({ name, icon, screen }: Props) => {
 
   useEffect(() => {
     if (isActive) {
-      color.value = withTiming(styles.active.color, timingOptions);
+      color.value = withTiming(theme.active.color, timingOptions);
       fontSize.value = withTiming(14, timingOptions);
       lineHeight.value = withTiming(18, timingOptions);
     } else {
-      color.value = withTiming(styles.inactive.color, timingOptions);
+      color.value = withTiming(theme.inactive.color, timingOptions);
       fontSize.value = withTiming(0, timingOptions);
       lineHeight.value = withTiming(0, timingOptions);
     }
@@ -49,7 +50,7 @@ const BottomTab = observer(({ name, icon, screen }: Props) => {
 
   return (
     <TouchableOpacity style={styles.wrapper} onPress={goTo}>
-      <Icon name={icon} size={22} color={isActive ? styles.active.color : styles.inactive.color} />
+      <Icon name={icon} size={22} color={isActive ? theme.active.color : theme.inactive.color} />
       <Animated.Text style={[styles.title, animatedStyle]}>{name}</Animated.Text>
     </TouchableOpacity>
   );

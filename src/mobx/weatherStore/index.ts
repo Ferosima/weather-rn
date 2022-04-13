@@ -30,12 +30,13 @@ export class WeatherStore {
     return filterHours(this.forecast, this.selected_day);
   }
   get hour() {
-    return this.forecast[this.selected_day].hour[this.selected_hour];
+    return this.hours[this.selected_hour];
   }
 
   @action public fetchWeather = async () => {
     try {
       console.log('FETCH WEATHER');
+      this.clearError();
       const response: IResponse<IWeather> = await fetchWeather(this.city);
       this.forecast = response.data.forecast.forecastday;
       this.location = { ...response.data.location };

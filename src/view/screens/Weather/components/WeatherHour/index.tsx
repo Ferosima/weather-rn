@@ -1,4 +1,4 @@
-
+import AnimatedText from '@components/Animated/Text';
 import Card from '@components/Card';
 import Row from '@components/Row';
 import { IWeatherHour } from '@types/weather';
@@ -27,10 +27,10 @@ const WeatherHour = observer(({ data, isSelected, onPress }: Props) => {
     <Animated.View style={[styles.wrapper, animatedWrapper]} entering={FadeInDown} exiting={FadeOutUp}>
       <Card style={styles.content} onPress={onPress}>
         <Row style={styles.row}>
-          <Animated.Text style={[styles.time, animatedTime]}>{moment(data.time).format('HH:mm')}</Animated.Text>
+          <AnimatedText style={[styles.time, animatedTime]}>{moment(data.time).format('HH:mm')}</AnimatedText>
           <Animated.Image style={[styles.icon, animatedIcon]} source={require('../../../../../../assets/images/mostly-cloud-light.png')} />
         </Row>
-        <Animated.Text style={[styles.temperature, animatedTemperature]}>{formatTemperature(data.temp_c)}</Animated.Text>
+        <AnimatedText style={[styles.temperature, animatedTemperature]}>{formatTemperature(data.temp_c)}</AnimatedText>
       </Card>
     </Animated.View>
   );

@@ -1,14 +1,15 @@
-import { View, Text, StyleProp, ViewStyle } from 'react-native';
 import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 import { styles } from './styles';
 
-import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown } from 'react-native-reanimated';
+import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction } from 'react-native-reanimated';
 
-import { observer } from 'mobx-react-lite';
-import { weatherStore } from '@mobx/weatherStore';
 import Card from '@components/Card';
-import Row from '@components/Row';
 import Icon from '@components/Icon';
+import Row from '@components/Row';
+import { weatherStore } from '@mobx/weatherStore';
+import { observer } from 'mobx-react-lite';
+import Text from '@components/Text';
 
 type Props = {
   style?: StyleProp<ViewStyle>;
@@ -22,17 +23,19 @@ const WeatherInfo = observer((props: Props) => {
       <Card style={[styles.wrapper, props.style]}>
         {/* Humidity */}
         <Row style={styles.box}>
-          <Icon name="drop" size={22} color={'#4A6ADD'} />
-          <Text style={styles.text}>{humidity}%</Text>
+          <Icon name="drop" size={22} />
+          <Text preset="default" style={styles.text}>
+            {humidity}%
+          </Text>
         </Row>
         {/* Wind */}
         <Row style={[styles.box, { paddingLeft: 10 }]}>
-          <Icon name="wind" size={22} color={'#4A6ADD'} />
+          <Icon name="wind" size={22} />
           <Text style={styles.text}>{wind_kph}km/h</Text>
         </Row>
         {/* Pressure */}
         <Row style={[styles.box, { justifyContent: 'flex-end' }]}>
-          <Icon name="pressure" size={22} color={'#4A6ADD'} />
+          <Icon name="pressure" size={22} />
           <Text style={styles.text}>{pressure_mb}mBar</Text>
         </Row>
       </Card>

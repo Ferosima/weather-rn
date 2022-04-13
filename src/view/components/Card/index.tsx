@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
+import { appStore } from '@mobx/appStore';
+import { observer } from 'mobx-react';
+import React, { ReactNode, useMemo } from 'react';
 import { StyleProp, TouchableOpacity, ViewStyle } from 'react-native';
-import Animated from 'react-native-reanimated';
 import { styles } from './styles';
 
 type Props = {
@@ -10,12 +11,14 @@ type Props = {
   onPress?: () => void;
 };
 
-const Card = (props: Props) => {
+const Card = observer((props: Props) => {
+  const theme = useMemo(() => appStore.theme.card, [appStore.theme]);
+
   return (
-    <TouchableOpacity onPress={props.onPress} disabled={!props.onPress} style={[styles.touchable, props.style]}>
+    <TouchableOpacity onPress={props.onPress} disabled={!props.onPress} style={[styles.touchable, theme, props.style]}>
       {props.children}
     </TouchableOpacity>
   );
-};
+});
 
 export default Card;

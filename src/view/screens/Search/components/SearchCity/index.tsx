@@ -1,11 +1,12 @@
 import Card from '@components/Card';
 import Row from '@components/Row';
+import Text from '@components/Text';
 import { SCREENS } from '@constants/screens';
 import { weatherStore } from '@mobx/weatherStore';
 import { ICity } from '@types/weather';
 import { navigation } from '@utils/navigation';
 import React, { useCallback } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { styles } from './styles';
 

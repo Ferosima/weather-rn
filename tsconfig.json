@@ -24,6 +24,7 @@
       "@utils/*": ["./src/common/utils/*"],
       "@types/*": ["./src/common/types/*"],
       "@constants/*": ["./src/common/constants/*"],
+      "@themes/*": ["./src/common/themes/*"],
       "@mobx/*": ["./src/mobx/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@requests/*": ["./src/requests/*"],

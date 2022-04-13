@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  input: {
-    backgroundColor: '#fff',
+  wrapper: {
+    paddingHorizontal: 20,
   },
 });

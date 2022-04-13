@@ -1,15 +1,18 @@
-import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
-import { navigationRef } from '@utils/navigation';
-import { weatherStore } from '@mobx/weatherStore';
+import Button from '@components/Button';
 import ModalBackdrop from '@components/Modal/ModalBackdrop';
+import Text from '@components/Text';
+import BottomSheet from '@gorhom/bottom-sheet';
+import { appStore } from '@mobx/appStore';
+import { navigation } from '@utils/navigation';
 import { observer } from 'mobx-react-lite';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Button, Text, TouchableOpacity, View } from 'react-native';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { View } from 'react-native';
 import { styles } from './styles';
 
 type Props = { error: string; onClose?: () => void; route: any };
 
 const ErrorModal = observer((props: Props) => {
+  const theme = useMemo(() => appStore.theme.modal, [appStore.theme]);
   const sheetRef = useRef<BottomSheet>(null);
   const snapPoints = useMemo(() => ['25%'], []);
 
@@ -17,7 +20,7 @@ const ErrorModal = observer((props: Props) => {
 
   const onClose = useCallback(() => {
     if (params.onClose) params.onClose();
-    navigationRef.goBack();
+    navigation.ref.goBack();
   }, []);
 
   // render
@@ -31,10 +34,12 @@ const ErrorModal = observer((props: Props) => {
         style={styles.sheetContainer}
         backdropComponent={ModalBackdrop}>
         <View style={styles.contentContainer}>
-          <Text style={styles.title}>{params.title}</Text>
-          <TouchableOpacity style={styles.button} onPress={onClose}>
-            <Text style={styles.buttonText}>Close</Text>
-          </TouchableOpacity>
+          <Text preset="black" schema="light" style={styles.title}>
+            {params.title}
+          </Text>
+          <View style={{ width: '100%' }}>
+            <Button text="Close" style={styles.button} preset="inactive" schema="light" onPress={onClose} />
+          </View>
         </View>
       </BottomSheet>
     </View>

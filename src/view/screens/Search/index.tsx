@@ -1,3 +1,4 @@
+import Box from '@components/Box';
 import { observer } from 'mobx-react';
 import React, { useMemo } from 'react';
 import { KeyboardAvoidingView, Platform } from 'react-native';
@@ -13,7 +14,7 @@ const SearchScreen = observer((props: Props) => {
   const delayRender = useMemo(() => 200, []);
 
   return (
-    <SafeAreaView edges={['top']} style={styles.wrapper}>
+    <Box edges={['top']} style={styles.wrapper}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -21,7 +22,7 @@ const SearchScreen = observer((props: Props) => {
         <SearchCities entering={FadeInDown.duration(400).delay(1 * delayRender)} />
         <SearchInput entering={FadeInDown.duration(400).delay(2 * delayRender)} />
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </Box>
   );
 });
 

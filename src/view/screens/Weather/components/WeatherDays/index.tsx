@@ -1,7 +1,8 @@
+import Text from '@components/Text';
 import { weatherStore } from '@mobx/weatherStore';
 import { observer } from 'mobx-react';
 import React, { useCallback } from 'react';
-import { StyleProp, Text, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction } from 'react-native-reanimated';
 import WeatherDay from '../WeatherDay';
 import { styles } from './styles';

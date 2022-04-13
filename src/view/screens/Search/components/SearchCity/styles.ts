@@ -13,16 +13,13 @@ export const styles = StyleSheet.create({
   city: {
     fontFamily: 'Comfortaa-Regular',
     fontSize: 14,
-    color: '#203789',
   },
   region: {
     fontFamily: 'Comfortaa-Regular',
     fontSize: 12,
-    color: '#203789',
   },
   country: {
     fontFamily: 'Comfortaa-Light',
     fontSize: 12,
-    color: '#203789',
   },
 });

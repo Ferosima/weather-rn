@@ -38,9 +38,9 @@ const WeatherHours = observer((props: Props) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        maxToRenderPerBatch={4}
-        initialNumToRender={4}
-        windowSize={5}
+        maxToRenderPerBatch={2}
+        initialNumToRender={3}
+        windowSize={2}
         getItemLayout={(data, index) => ({ length: 112, offset: 112 * index, index })}
       />
     </Animated.View>

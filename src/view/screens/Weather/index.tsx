@@ -23,7 +23,7 @@ interface IBrandsProps extends NativeStackNavigationProp<MainStackParamList, SCR
 
 const WeatherScreen = observer((props: IBrandsProps) => {
   const appState = useRef<AppStateStatus>(AppState.currentState);
-  const delayRender = useMemo(() => 200, []);
+  const delayRender = useMemo(() => 400, []);
 
   // Update if app was inactive or background
   useEffect(() => {

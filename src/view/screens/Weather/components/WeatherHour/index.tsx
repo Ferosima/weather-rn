@@ -1,3 +1,4 @@
+import { getIconCondition } from '@assets/images/weather';
 import AnimatedText from '@components/Animated/Text';
 import Card from '@components/Card';
 import Row from '@components/Row';
@@ -28,7 +29,7 @@ const WeatherHour = observer(({ data, isSelected, onPress }: Props) => {
       <Card style={styles.content} onPress={onPress}>
         <Row style={styles.row}>
           <AnimatedText style={[styles.time, animatedTime]}>{moment(data.time).format('HH:mm')}</AnimatedText>
-          <Animated.Image style={[styles.icon, animatedIcon]} source={require('../../../../../../assets/images/mostly-cloud-light.png')} />
+          <Animated.Image style={[styles.icon, animatedIcon]} source={getIconCondition(data.condition.icon)} />
         </Row>
         <AnimatedText style={[styles.temperature, animatedTemperature]}>{formatTemperature(data.temp_c)}</AnimatedText>
       </Card>

@@ -1,3 +1,4 @@
+import { getIconCondition } from '@assets/images/weather';
 import Card from '@components/Card';
 import Row from '@components/Row';
 import Text from '@components/Text';
@@ -16,12 +17,14 @@ const WeatherDay = (props: Props) => {
   return (
     <Card style={styles.wrapper} onPress={props.onPress}>
       {props.selected ? <Animated.View entering={FadeIn.duration(700)} style={styles.selected} /> : null}
-      <View>
+      <View style={{ flex: 1 }}>
         <Text style={styles.day}>{moment(date).format('dddd')}</Text>
         <Text style={styles.date}>{moment(date).format('DD/MM')}</Text>
       </View>
-      <Image style={styles.icon} source={require('../../../../../../assets/images/mostly-cloud-light.png')} />
-      <Row>
+      <View style={{ flex: 1, alignItems: 'center' }}>
+        <Image style={styles.icon} source={getIconCondition(day.condition.icon)} />
+      </View>
+      <Row style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'flex-end' }}>
         <Text style={styles.plus_temperature}>{formatTemperature(day.maxtemp_c)}</Text>
         <Text preset="dark" style={styles.minus_temperature}>
           {formatTemperature(day.mintemp_c)}

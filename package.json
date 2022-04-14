@@ -17,6 +17,7 @@
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "axios": "^0.24.0",
+    "babel-plugin-import-glob": "^2.0.0",
     "babel-plugin-inline-import": "^3.0.0",
     "fantasticon": "^1.2.3",
     "lottie-ios": "3.2.3",

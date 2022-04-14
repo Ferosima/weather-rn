@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     padding: 10,
     paddingHorizontal: 12,
     marginVertical: 5,
+    maxHeight: 65,
   },
   day: {
     fontFamily: 'Comfortaa-Regular',
@@ -23,6 +24,8 @@ export const styles = StyleSheet.create({
   icon: {
     aspectRatio: 1,
     width: 45,
+    maxHeight: 45,
+    // alignSelf: 'center',
   },
   plus_temperature: {
     fontFamily: 'Comfortaa-Bold',

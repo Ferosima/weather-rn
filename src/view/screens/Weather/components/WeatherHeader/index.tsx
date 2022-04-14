@@ -4,11 +4,12 @@ import { weatherStore } from '@mobx/weatherStore';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import moment from 'moment';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Image, StyleProp, View, ViewStyle } from 'react-native';
 import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction, FadeInDown } from 'react-native-reanimated';
 import { formatTemperature } from 'src/common/utils/formater';
 import { styles } from './styles';
+import { getIconCondition, icons } from '@assets/images/weather';
 
 type Props = {
   style?: StyleProp<ViewStyle>;
@@ -17,11 +18,10 @@ type Props = {
 
 const WeatherHeader = observer((props: Props) => {
   const { condition } = weatherStore.hour;
-  console.log(
-    weatherStore.hours.map(i => console.log(i.temp_c, i.time)),
-    weatherStore.selected_hour,
-    weatherStore.hours[weatherStore.selected_hour],
-  );
+
+  const icon = useMemo(() => {
+    getIconCondition(condition.icon);
+  }, [condition]);
 
   return (
     <Animated.View style={[styles.wrapper, props.style]} entering={props.entering}>
@@ -43,13 +43,7 @@ const WeatherHeader = observer((props: Props) => {
             </Text>
           </View>
 
-          <Image
-            style={styles.icon}
-            source={require('../../../../../../assets/images/mostly-cloud-light.png')}
-            // source={{
-            //   uri: "https:" + current.condition.icon,
-            // }}
-          />
+          <Image style={styles.icon} source={getIconCondition(condition.icon)} />
         </View>
       </View>
     </Animated.View>

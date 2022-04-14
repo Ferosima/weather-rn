@@ -2516,6 +2516,15 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
+babel-plugin-import-glob@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-import-glob/-/babel-plugin-import-glob-2.0.0.tgz#80e34809732885c5bcb8763744c34cddb37163ca"
+  integrity sha1-gONICXMohcW8uHY3RMNM3bNxY8o=
+  dependencies:
+    glob "^7.0.0"
+    identifierfy "^1.1.0"
+    minimatch-capture "^1.1.0"
+
 babel-plugin-inline-import@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-inline-import/-/babel-plugin-inline-import-3.0.0.tgz#220eb2a52f8e779d8fb89447f950275e1e3f5981"
@@ -2821,7 +2830,7 @@ babel-register@^6.18.0, babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.22.0, babel-runtime@^6.26.0:
+babel-runtime@^6.22.0, babel-runtime@^6.26.0, babel-runtime@^6.3.19:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -4890,6 +4899,14 @@ iconv-lite@^0.6.2:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
+identifierfy@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/identifierfy/-/identifierfy-1.1.1.tgz#8f963650afa36aeb42f2ff0ed15f295ff040aff0"
+  integrity sha1-j5Y2UK+jautC8v8O0V8pX/BAr/A=
+  dependencies:
+    babel-runtime "^6.3.19"
+    esutils "^2.0.2"
+
 ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.npmjs.org/ignore/-/ignore-4.0.6.tgz"
@@ -6863,6 +6880,13 @@ mimic-fn@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/mimic-fn/-/mimic-fn-2.1.0.tgz"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
+
+minimatch-capture@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/minimatch-capture/-/minimatch-capture-1.1.0.tgz#d6c8c2acdba92dc2f66921d8007ed0e42b2f9855"
+  integrity sha1-1sjCrNupLcL2aSHYAH7Q5CsvmFU=
+  dependencies:
+    minimatch "^3.0.4"
 
 "minimatch@2 || 3":
   version "3.1.2"

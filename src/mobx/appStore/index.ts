@@ -7,6 +7,7 @@ import { persist } from 'mobx-persist';
 export class AppStore {
   @observable public screen: keyof BottomTabParamList | null = SCREENS.WEATHER;
   @persist('object') @observable public scheme: keyof themes = 'light';
+  @persist('object') @observable public language: keyof themes = 'light';
 
   get theme() {
     return themes[this.scheme];

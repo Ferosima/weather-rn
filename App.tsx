@@ -1,11 +1,12 @@
 import { create } from 'mobx-persist';
 import { Provider } from 'mobx-react';
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, StatusBar, View } from 'react-native';
+import { AsyncStorage,View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import mainStore from './src/mobx';
 import MainNavigator from './src/navigation';
 import Loader from './src/view/components/Loader';
+import StatusBar from './src/view/containers/StatusBar';
 
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
@@ -57,7 +58,7 @@ const App = () => {
 
   return (
     <SafeAreaProvider style={{ flex: 1, backgroundColor: '#fff' }}>
-      <StatusBar />
+      <StatusBar/>
       <Provider {...mainStore}>
         <MainNavigator />
       </Provider>

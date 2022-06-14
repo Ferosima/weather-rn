@@ -1,10 +1,14 @@
 {
-    "close": 61697,
-    "drop": 61698,
-    "menu": 61699,
-    "pressure": 61700,
-    "search": 61701,
-    "weather": 61702,
-    "wind-1": 61703,
-    "wind": 61704
+    "chevron": 61697,
+    "close": 61698,
+    "done": 61699,
+    "drop": 61700,
+    "menu": 61701,
+    "moon": 61702,
+    "pressure": 61703,
+    "search": 61704,
+    "sun": 61705,
+    "weather": 61706,
+    "wind-1": 61707,
+    "wind": 61708
 }

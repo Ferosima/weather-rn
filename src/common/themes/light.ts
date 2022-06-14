@@ -6,13 +6,19 @@ export const light = {
     backgroundColor: '#FAFAFC',
   },
   card: {
-    borderColor: '#E3E9F1',
-    backgroundColor: 'rgba(255, 255, 255, 0.60)',
+    default: {
+      borderColor: '#E3E9F1',
+      backgroundColor: 'rgba(255, 255, 255, 0.60)',
+    },
+    light: {
+      borderColor: '#E3E9F1',
+      backgroundColor: '#fff',
+    },
   },
   text: {
     black: { color: '#1d1d1d' },
     dark: { color: '#203789' },
-    default: { color: '#4A6ADD' },
+    default: { color: '#4A6ADA' },
     gray: { color: '#A8B2D3' },
     light: { color: '#fff' },
   },
@@ -52,5 +58,18 @@ export const light = {
   bottomBar: {
     active: { color: '#203789' },
     inactive: { color: '#A8B2D3' },
+  },
+  modal: {
+    backgroundColor: '#ffff',
+    backdrop: {
+      opacity: 0.7,
+      backgroundColor: 'gray',
+    },
+  },
+  option: {
+    active: {
+      backgroundColor: '#4A6ADD',
+      color: '#fff',
+    },
   },
 };

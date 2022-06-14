@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Icons";
-    src: url("./Icons.ttf?ed98fc8a82af1162a910e2abd880fec8") format("truetype");
+    src: url("./Icons.ttf?5eef3f81d961ff546d6aca0322350726") format("truetype");
 }
 
 i[class^="icon-"]:before, i[class*=" icon-"]:before {
@@ -14,27 +14,39 @@ i[class^="icon-"]:before, i[class*=" icon-"]:before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-close:before {
+.icon-chevron:before {
     content: "\f101";
 }
-.icon-drop:before {
+.icon-close:before {
     content: "\f102";
 }
-.icon-menu:before {
+.icon-done:before {
     content: "\f103";
 }
-.icon-pressure:before {
+.icon-drop:before {
     content: "\f104";
 }
-.icon-search:before {
+.icon-menu:before {
     content: "\f105";
 }
-.icon-weather:before {
+.icon-moon:before {
     content: "\f106";
 }
-.icon-wind-1:before {
+.icon-pressure:before {
     content: "\f107";
 }
-.icon-wind:before {
+.icon-search:before {
     content: "\f108";
+}
+.icon-sun:before {
+    content: "\f109";
+}
+.icon-weather:before {
+    content: "\f10a";
+}
+.icon-wind-1:before {
+    content: "\f10b";
+}
+.icon-wind:before {
+    content: "\f10c";
 }

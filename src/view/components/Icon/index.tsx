@@ -6,9 +6,10 @@ import { StyleProp, TextProps, TextStyle } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { createIconSet } from 'react-native-vector-icons';
 import config from '../../../../assets/fonts/Icons/Icons.json';
+import { IconsId } from '@assets/fonts/Icons/Icons';
 
 export interface IconProps extends TextProps {
-  name: string;
+  name: IconsId;
   size?: number;
   style?: StyleProp<TextStyle>;
   revert?: boolean;

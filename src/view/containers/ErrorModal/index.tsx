@@ -1,5 +1,5 @@
 import Button from '@components/Button';
-import ModalBackdrop from '@components/Modal/ModalBackdrop';
+import ModalBackdrop from '@components/ModalBackdrop';
 import Text from '@components/Text';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { appStore } from '@mobx/appStore';

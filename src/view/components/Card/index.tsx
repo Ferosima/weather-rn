@@ -7,16 +7,17 @@ import { styles } from './styles';
 type Props = {
   style?: StyleProp<ViewStyle>;
   animatedStyle?: StyleProp<ViewStyle>;
+  preset?: string;
   children?: ReactNode;
   onPress?: () => void;
 };
 
-const Card = observer((props: Props) => {
-  const theme = useMemo(() => appStore.theme.card, [appStore.theme]);
+const Card = observer(({ style, animatedStyle, preset, children, onPress }: Props) => {
+  const theme = useMemo(() => appStore.theme.card[preset ?? 'default'], [appStore.theme, preset]);
 
   return (
-    <TouchableOpacity onPress={props.onPress} disabled={!props.onPress} style={[styles.touchable, theme, props.style]}>
-      {props.children}
+    <TouchableOpacity onPress={onPress} disabled={!onPress} style={[styles.touchable, theme, style]}>
+      {children}
     </TouchableOpacity>
   );
 });

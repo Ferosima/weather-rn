@@ -6,11 +6,17 @@ export const dark = {
     backgroundColor: '#12133D',
   },
   card: {
-    borderColor: '#1A1842',
-    backgroundColor: 'rgba(26, 27, 71, 0.85)',
+    default: {
+      borderColor: '#1A1842',
+      backgroundColor: 'rgba(26, 27, 71, 0.85)',
+    },
+    light: {
+      borderColor: '#1A1842',
+      backgroundColor: 'rgba(26, 27, 71, 0.85)',
+    },
   },
   text: {
-    black: { color: '#1d1d1d' },
+    black: { color: '#fff' },
     dark: { color: '#DCE2F8' },
     default: { color: '#DCE2F8' },
     gray: { color: '#4F587B' },
@@ -52,5 +58,18 @@ export const dark = {
   bottomBar: {
     active: { color: '#C1C5EA' },
     inactive: { color: '#6475B1' },
+  },
+  modal: {
+    backgroundColor: '#12133D',
+    backdrop: {
+      opacity: 0.1,
+      backgroundColor: '#fff',
+    },
+  },
+  option: {
+    active: {
+      backgroundColor: '#fff',
+      color: '#4A6ADD',
+    },
   },
 };

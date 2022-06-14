@@ -1,3 +1,4 @@
+import { TModalParams } from '@containers/Modal';
 import { Route } from '@react-navigation/native';
 import { SCREENS } from '../constants/screens';
 
@@ -11,5 +12,6 @@ export type BottomTabParamList = {
 
 export type MainStackParamList = {
   [SCREENS.ERROR]: { onClose: () => void; title: string };
+  [SCREENS.MODAL]: TModalParams
   [SCREENS.APP]: undefined;
 };

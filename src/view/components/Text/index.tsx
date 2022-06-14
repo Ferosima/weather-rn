@@ -5,7 +5,7 @@ import { FONT_FAMILY } from '@constants/fonts';
 import { appStore } from '@mobx/appStore';
 import { observer } from 'mobx-react';
 import Animated from 'react-native-reanimated';
-import { themes } from '@themes/';
+import { themes } from '@themes';
 
 type Props = {
   preset?: keyof TTheme['text'];

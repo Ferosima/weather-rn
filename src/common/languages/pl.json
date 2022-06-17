@@ -1,0 +1,22 @@
+{
+  "city": "Miasto",
+  "close": "Blisko",
+  "dark": "Ciemny",
+  "de": "Niemiecki",
+  "en": "język angielski",
+  "es": "hiszpański",
+  "fr": "Francuski",
+  "language": "Język",
+  "light": "Światło",
+  "menu": "Menu",
+  "not_found_city": "Nie znaleziono miasta",
+  "pl": "Polski",
+  "ru": "Rosyjski",
+  "search": "Szukaj",
+  "search_empty": "Znajdź obszar lub miasto, w którym chcesz poznać szczegółowe informacje o pogodzie w tej chwili",
+  "theme": "Motyw",
+  "themes": "Motywy",
+  "three_days": "Trzy dni",
+  "uk": "ukraiński",
+  "weather": "Pogoda"
+}

@@ -6,18 +6,21 @@ import { IconsId } from '@assets/fonts/Icons/Icons';
 import { observer } from 'mobx-react';
 import Text from '@components/Text';
 import { styles } from './styles';
+import { translate } from 'src/common/languages';
 
 type Props = {};
+
 type TTheme = { label: string; icon: IconsId; color: string; scheme: string };
+
 const themes: TTheme[] = [
-  { label: 'Dark', icon: 'moon', scheme: 'dark', color: '#BAC7CB' },
-  { label: 'Light', icon: 'sun', scheme: 'light', color: '#FFA900' },
+  { label: 'dark', icon: 'moon', scheme: 'dark', color: '#BAC7CB' },
+  { label: 'light', icon: 'sun', scheme: 'light', color: '#FFA900' },
 ];
 
 const MenuThemeList = observer((props: Props) => {
   const onPress = useCallback(
-    sheme => () => {
-      appStore.setThemeScheme(sheme);
+    scheme => () => {
+      props.onOptionPress(() => appStore.setThemeScheme(scheme));
     },
     [appStore.scheme],
   );
@@ -26,9 +29,7 @@ const MenuThemeList = observer((props: Props) => {
 
   return (
     <View style={styles.wrapper}>
-      <Text preset="black" style={styles.title}>
-        Themes
-      </Text>
+      <Text preset="black" style={styles.title} t="themes" />
       <View style={styles.content}>
         {themes.map(({ scheme, ...theme }) => (
           <MenuThemeOption {...theme} selected={isSelected(scheme)} onPress={onPress(scheme)} />

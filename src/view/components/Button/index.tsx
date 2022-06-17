@@ -1,4 +1,4 @@
-import { View, Text, StyleProp, ViewStyle, TextStyle, ActivityIndicator } from 'react-native';
+import { View, StyleProp, ViewStyle, TextStyle, ActivityIndicator } from 'react-native';
 import React, { useMemo } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from './styles';
@@ -7,9 +7,12 @@ import { observer } from 'mobx-react-lite';
 import { appStore } from '@mobx/appStore';
 import { Theme, ThemeProps } from 'react-native-elements';
 import { themes } from '@themes/';
+import { TxKeyPath } from '@types/language';
+import Text from '@components/Text';
 
 type Props = {
-  text: string;
+  t?: TxKeyPath;
+  text?: string;
   style?: StyleProp<ViewStyle>;
   loading?: boolean;
   preset: keyof TTheme['button'];
@@ -17,13 +20,19 @@ type Props = {
   onPress: () => void;
 };
 
-const Button = observer(({ text, style, loading, preset, schema, onPress }: Props) => {
+const Button = observer(({ text, t, style, loading, preset, schema, onPress }: Props) => {
   const _schema = useMemo(() => (schema ? themes[schema] : appStore.theme), [appStore.theme, schema]);
   const theme = useMemo(() => _schema.button[preset], [_schema, preset]);
 
   return (
     <TouchableOpacity style={[styles.wrapper, theme.wrapper, style]} onPress={onPress} disabled={loading}>
-      {loading ? <ActivityIndicator /> : <Text style={[styles.text, theme.text]}>{text}</Text>}
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <Text style={[styles.text, theme.text]} t={t}>
+          {text}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 });

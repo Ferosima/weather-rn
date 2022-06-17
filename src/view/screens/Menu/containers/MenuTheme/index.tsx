@@ -10,11 +10,11 @@ import MenuThemeList from './components/MenuThemeList';
 type Props = { entering?: BaseAnimationBuilder | typeof BaseAnimationBuilder | EntryExitAnimationFunction | Keyframe };
 
 const MenuTheme = observer((props: Props) => {
-  const onToggle = useCallback(() => {
-    navigation.navigate(SCREENS.MODAL, { snapPoints: ['25%'], content: <MenuThemeList /> });
+  const onPress = useCallback(() => {
+    navigation.navigate(SCREENS.MODAL, { snapPoints: ['25%'], Content: MenuThemeList });
   }, [appStore.scheme]);
 
-  return <MenuOption label="Theme" value={appStore.scheme} entering={props.entering} onPress={onToggle} />;
+  return <MenuOption title="theme" subtitle={appStore.scheme} entering={props.entering} onPress={onPress} />;
 });
 
 export default MenuTheme;

@@ -1,0 +1,22 @@
+{
+  "city": "City",
+  "close": "Close",
+  "dark": "Dark",
+  "de": "German",
+  "en": "English",
+  "es": "Spanish",
+  "fr": "French",
+  "language": "Language",
+  "light": "Light",
+  "menu": "Menu",
+  "not_found_city": "Not found city",
+  "pl": "Polish",
+  "ru": "Russian",
+  "search": "Search",
+  "search_empty": "Find the area or city that you want to know the detailed weather info at this time",
+  "theme": "Theme",
+  "themes": "Themes",
+  "three_days": "3 Days",
+  "uk": "Ukrainian",
+  "weather": "Weather"
+}

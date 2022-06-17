@@ -23,33 +23,48 @@ export type TModalParams = {
 const Modal = observer((props: Props) => {
   const theme = useMemo(() => appStore.theme.modal, [appStore.theme]);
   const sheetRef = useRef<BottomSheet>(null);
+  const modal = useRef(props.route.params).current;
 
-  const params = useMemo(() => props.route.params, [props.route.params]);
+  // const onClose = useCallback(async () => {
+  //   await sheetRef.current.close();
+  //   await delay(350);
+  //   await navigation.ref.goBack();
+  //   if (modal.onClose) modal.onClose();
+  // }, []);
 
-  const onClose = useCallback(async () => {
-    await sheetRef.current.close();
-    await navigation.ref.goBack();
-    if (params.onClose) params.onClose();
+  const onClose = useCallback(() => {
+    if (modal.onClose) modal.onClose();
+    navigation.ref.goBack();
   }, []);
+
+  const closeModal = useCallback(async () => {
+    sheetRef.current?.close();
+    await delay(350);
+  }, []);
+
+  const onOptionPress = cb => {
+    closeModal();
+    setTimeout(cb, 350);
+  };
 
   // render
   return (
     <View style={styles.container}>
       <BottomSheet
         ref={sheetRef}
-        snapPoints={params.snapPoints}
+        snapPoints={modal.snapPoints}
         backdropComponent={ModalBackdrop}
         style={{ overflow: 'hidden' }}
         onClose={onClose}
         enablePanDownToClose
         backgroundStyle={{ backgroundColor: theme.backgroundColor }}>
         <SafeAreaView style={[styles.contentContainer]} edges={['bottom']}>
-          {params.title ? (
+          {modal.title ? (
             <Text preset="black" style={styles.title}>
-              {params.title}
+              {modal.title}
             </Text>
           ) : null}
-          {params.content}
+          {modal.Content ? <modal.Content closeModal={onClose} onOptionPress={onOptionPress} /> : null}
         </SafeAreaView>
       </BottomSheet>
     </View>

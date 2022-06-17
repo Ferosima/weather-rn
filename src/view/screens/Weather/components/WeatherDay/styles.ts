@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 4,
     marginTop: 10,
+    textTransform: 'capitalize',
   },
   date: {
     fontFamily: 'Comfortaa-Light',

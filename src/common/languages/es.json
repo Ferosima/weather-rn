@@ -1,0 +1,22 @@
+{
+  "city": "Ciudad",
+  "close": "Cerca",
+  "dark": "Oscuro",
+  "de": "Alemán",
+  "en": "inglés",
+  "es": "español",
+  "fr": "Francés",
+  "language": "Idioma",
+  "light": "Luz",
+  "menu": "Menú",
+  "not_found_city": "Ciudad no encontrada",
+  "pl": "Polaco",
+  "ru": "Ruso",
+  "search": "Búsqueda",
+  "search_empty": "Encuentre el área o ciudad de la que desea conocer la información meteorológica detallada en este momento",
+  "theme": "Tema",
+  "themes": "Temas",
+  "three_days": "3 Días",
+  "uk": "ucranio",
+  "weather": "Clima"
+}

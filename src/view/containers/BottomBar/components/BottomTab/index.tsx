@@ -1,16 +1,18 @@
 import Icon from '@components/Icon';
 import { SCREENS } from '@constants/screens';
 import { appStore } from '@mobx/appStore';
+import { TxKeyPath } from '@types/language';
 import { BottomTabParamList } from '@types/navigators';
 import { navigation } from '@utils/navigation';
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { translate } from 'src/common/languages';
 import { styles } from './styles';
 
 type Props = {
-  name: string;
+  name: TxKeyPath;
   icon: string;
   screen: keyof BottomTabParamList;
 };
@@ -51,7 +53,7 @@ const BottomTab = observer(({ name, icon, screen }: Props) => {
   return (
     <TouchableOpacity style={styles.wrapper} onPress={goTo}>
       <Icon name={icon} size={22} color={isActive ? theme.active.color : theme.inactive.color} />
-      <Animated.Text style={[styles.title, animatedStyle]}>{name}</Animated.Text>
+      <Animated.Text style={[styles.title, animatedStyle]}>{translate(name)}</Animated.Text>
     </TouchableOpacity>
   );
 });

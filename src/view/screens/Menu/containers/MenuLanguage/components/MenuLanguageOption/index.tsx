@@ -1,23 +1,25 @@
-import { View } from 'react-native';
-import React, { useMemo } from 'react';
-import { IconsId } from '@assets/fonts/Icons/Icons';
 import Icon from '@components/Icon';
-import { styles } from './styles';
-import { appStore } from '@mobx/appStore';
-import { observer } from 'mobx-react-lite';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import Text from '@components/Text';
+import { appStore } from '@mobx/appStore';
+import { TxKeyPath } from '@types/language';
+import { observer } from 'mobx-react-lite';
+import React, { useMemo } from 'react';
+import { View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { translate } from 'src/common/languages';
+import { styles } from './styles';
 
-type Props = { label: string; onPress: () => void; icon: IconsId; selected?: boolean; color: string };
+type Props = { t: TxKeyPath; onPress: () => void; selected?: boolean };
 
-const MenuThemeOption = observer(({ label, onPress, icon, selected, color }: Props) => {
+const MenuLanguageOption = observer(({ t, onPress, selected }: Props) => {
   const theme = useMemo(() => appStore.theme.option.active, [appStore.theme]);
   return (
     <TouchableOpacity style={styles.wrapper} onPress={onPress}>
-      <View style={styles.row}>
-        <Icon name={icon} size={24} color={color} />
-        <Text preset="black" style={styles.label} t={label} />
+      <View>
+        <Text preset="black" style={styles.title} t={t} />
+        <Text preset="default" style={styles.subtitle}>
+          {translate(t, t)}
+        </Text>
       </View>
       {selected ? (
         <View style={[styles.selected, { backgroundColor: theme.backgroundColor }]}>
@@ -28,4 +30,4 @@ const MenuThemeOption = observer(({ label, onPress, icon, selected, color }: Pro
   );
 });
 
-export default MenuThemeOption;
+export default MenuLanguageOption;

@@ -6,6 +6,9 @@ import { create, persist } from 'mobx-persist';
 import moment from 'moment';
 import { ICity, IWeather, IWeatherCurrent, IWeatherForecast, IWeatherLocation } from '../../common/types/weather';
 import { fetchCity, fetchWeather } from '../../requests/weather';
+import { appStore } from '@mobx/appStore';
+import { navigation } from '@utils/navigation';
+import { SCREENS } from '@constants/screens';
 
 export class WeatherStore {
   @observable public forecast: IWeatherForecast[] | null = null;
@@ -37,7 +40,7 @@ export class WeatherStore {
     try {
       console.log('FETCH WEATHER');
       this.clearError();
-      const response: IResponse<IWeather> = await fetchWeather(this.city);
+      const response: IResponse<IWeather> = await fetchWeather(this.city, appStore.language);
       this.forecast = response.data.forecast.forecastday;
       this.location = { ...response.data.location };
       this.loading = false;
@@ -63,6 +66,7 @@ export class WeatherStore {
       console.log('FETCH CITY ERROR', { error });
       if (!error?.response) {
         this.error = 'Network error';
+        navigation.navigate(SCREENS.ERROR, { title: this.error, onClose: this.clearError });
       } else {
         this.error = error.response;
       }

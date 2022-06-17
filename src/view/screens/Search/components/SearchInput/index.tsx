@@ -28,7 +28,13 @@ const SearchInput = observer((props: Props) => {
 
   return (
     <Animated.View entering={props.entering}>
-      <Input iconLeft={{ name: 'search' }} iconRight={search && { name: 'close', onPress: clearSearch }} value={search} onChangeText={setSearch} />
+      <Input
+        iconLeft={{ name: 'search' }}
+        iconRight={search && { name: 'close', onPress: clearSearch }}
+        value={search}
+        onChangeText={setSearch}
+        placeholder="city"
+      />
     </Animated.View>
   );
 });

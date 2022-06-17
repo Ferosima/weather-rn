@@ -1,0 +1,22 @@
+{
+  "city": "Stadt",
+  "close": "Nah dran",
+  "dark": "Dunkel",
+  "de": "Deutsch",
+  "en": "Englisch",
+  "es": "Spanisch",
+  "fr": "Französisch",
+  "language": "Sprache",
+  "light": "Licht",
+  "menu": "Speisekarte",
+  "not_found_city": "Stadt nicht gefunden",
+  "pl": "Polieren",
+  "ru": "Russisch",
+  "search": "Suche",
+  "search_empty": "Suchen Sie das Gebiet oder die Stadt, für die Sie die detaillierten Wetterinformationen zu diesem Zeitpunkt erhalten möchten",
+  "theme": "Thema",
+  "themes": "Themen",
+  "three_days": "3 Tage",
+  "uk": "ukrainisch",
+  "weather": "Wetter"
+}

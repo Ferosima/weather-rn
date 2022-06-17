@@ -21,9 +21,9 @@ const BottomBar = observer((props: Props) => {
       <Image style={styles.background} source={appStore.theme.image.bottom_background} />
       <View style={[styles.container, { paddingBottom: paddingBottom }]}>
         <Row style={styles.tabs}>
-          <BottomTab name="Search" icon="search" screen={SCREENS.SEARCH} />
-          <BottomTab name="Weather" icon="weather" screen={SCREENS.WEATHER} />
-          <BottomTab name="Menu" icon="menu" screen={SCREENS.MENU} />
+          <BottomTab name="search" icon="search" screen={SCREENS.SEARCH} />
+          <BottomTab name="weather" icon="weather" screen={SCREENS.WEATHER} />
+          <BottomTab name="menu" icon="menu" screen={SCREENS.MENU} />
         </Row>
       </View>
     </Animated.View>

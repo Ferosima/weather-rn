@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
     fontFamily: 'Comfortaa-Light',
     fontSize: 14,
     color: '#fff',
+    textTransform: 'capitalize',
   },
   icon: {
     width: 100,

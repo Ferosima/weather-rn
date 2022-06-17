@@ -1,14 +1,12 @@
-import { View, Text } from 'react-native';
-import React, { useCallback, useMemo } from 'react';
 import Box from '@components/Box';
+import React, { useMemo } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { appStore } from '@mobx/appStore';
-import MenuTheme from './containers/MenuTheme';
-import { FadeInDown } from 'react-native-reanimated';
-import { styles } from './styles';
-import MenuLanguage from './containers/MenuLanguage';
 import { ScrollView } from 'react-native-gesture-handler';
+import { FadeInDown } from 'react-native-reanimated';
+import MenuLanguage from './containers/MenuLanguage';
+import MenuTheme from './containers/MenuTheme';
+import { styles } from './styles';
 
 type Props = {};
 

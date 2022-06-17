@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import React, { useCallback } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction } from 'react-native-reanimated';
+import { translate } from 'src/common/languages';
 import WeatherDay from '../WeatherDay';
 import { styles } from './styles';
 
@@ -17,7 +18,7 @@ const WeatherDays = observer((props: Props) => {
 
   return (
     <Animated.View entering={props.entering} style={props.style}>
-      <Text style={styles.title}>3 Days</Text>
+      <Text style={styles.title}>{translate('three_days')}</Text>
       {weatherStore.forecast.map((item, index) => (
         <WeatherDay key={item.date} day={item} selected={isSelectedDay(index)} onPress={() => weatherStore.selectDay(index)} />
       ))}

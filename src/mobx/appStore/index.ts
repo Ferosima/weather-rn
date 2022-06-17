@@ -1,13 +1,15 @@
 import { SCREENS } from '@constants/screens';
 import { themes } from '@themes/';
+import { Languages } from '@types/language';
 import { BottomTabParamList } from '@types/navigators';
 import { action, observable } from 'mobx';
 import { persist } from 'mobx-persist';
+import moment from 'moment';
 
 export class AppStore {
   @observable public screen: keyof BottomTabParamList | null = SCREENS.WEATHER;
   @persist('object') @observable public scheme: keyof themes = 'light';
-  @persist('object') @observable public language: keyof themes = 'light';
+  @persist @observable public language: Languages = Languages.ENGLISH;
 
   get theme() {
     return themes[this.scheme];
@@ -32,7 +34,19 @@ export class AppStore {
     this.scheme = scheme;
   };
 
-  async afterHydration() {}
+  /**
+   * Change theme scheme
+   *
+   * @memberof AppStore
+   */
+  @action public setLanguage = (language: Languages) => {
+    this.language = language;
+    moment.locale(language);
+  };
+
+  async afterHydration() {
+    moment.locale(this.language);
+  }
 }
 
 export const appStore = new AppStore();

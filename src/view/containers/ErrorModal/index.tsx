@@ -32,13 +32,14 @@ const ErrorModal = observer((props: Props) => {
         bottomInset={46}
         detached={true}
         style={styles.sheetContainer}
-        backdropComponent={ModalBackdrop}>
+        backdropComponent={ModalBackdrop}
+        backgroundStyle={{ backgroundColor: theme.backgroundColor }}>
         <View style={styles.contentContainer}>
-          <Text preset="black" schema="light" style={styles.title}>
+          <Text preset="black" style={styles.title}>
             {params.title}
           </Text>
           <View style={{ width: '100%' }}>
-            <Button text="Close" style={styles.button} preset="inactive" schema="light" onPress={onClose} />
+            <Button t="close" style={styles.button} preset="inactive" onPress={onClose} />
           </View>
         </View>
       </BottomSheet>

@@ -1,21 +1,20 @@
-import Card from '@components/Card';
-import Text from '@components/Text';
+import { SCREENS } from '@constants/screens';
 import { appStore } from '@mobx/appStore';
 import MenuOption from '@screens/Menu/components/MenuOption';
+import { navigation } from '@utils/navigation';
 import { observer } from 'mobx-react';
 import React, { useCallback } from 'react';
-import Animated, { BaseAnimationBuilder, EntryExitAnimationFunction } from 'react-native-reanimated';
-import ToggleSwitch from 'toggle-switch-react-native';
-import { styles } from './styles';
+import { BaseAnimationBuilder, EntryExitAnimationFunction } from 'react-native-reanimated';
+import MenuLanguageList from './components/MenuLanguageList';
 
 type Props = { entering?: BaseAnimationBuilder | typeof BaseAnimationBuilder | EntryExitAnimationFunction | Keyframe };
 
 const MenuLanguage = observer((props: Props) => {
-  const onToggle = useCallback(isOn => {
-    appStore.setThemeScheme(isOn ? 'dark' : 'light');
-  }, []);
+  const onPress = useCallback(() => {
+    navigation.navigate(SCREENS.MODAL, { snapPoints: ['60%'], Content: MenuLanguageList });
+  }, [appStore.language]);
 
-  return <MenuOption label="Language" value="English" entering={props.entering}></MenuOption>;
+  return <MenuOption title="language" subtitle={appStore.language} entering={props.entering} onPress={onPress} />;
 });
 
 export default MenuLanguage;
